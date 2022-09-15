@@ -5,7 +5,7 @@ def copy(path):
     """ """
     # build lecture dir
     new_dir = os.path.join(path, "notebooks")
-    lecture_dir = os.path.join("..", os.path.dirname(__file__), "notebooks")
+    lecture_dir = os.path.join(os.path.dirname(__file__), "notebooks")
 
     # check the path
     if not os.path.isdir(path):
