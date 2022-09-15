@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multidim"
+authors = [
+  {email = "nasinski.maciej@gmail.com"},
+  {name = "Maciej Nasinski"}
+]
+description = "My package description"
+readme = "README.md"
+version = "0.1.0.9000"
+requires-python = ">=3.8"
+keywords = ["multidimensional", "analysis", "teaching"]
+license = {text = "MIT License"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "statsmodels",
+    "prince",
+    "factor-analyzer",
+    "stata_setup",
+    "PyYAML",
+    "pyAesCrypt",
+    "pywin32; platform_system=='Windows'",
+    "importlib-resources",
+    "importlib-metadata",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-cov", "mypy"]
+formatting = ["flake8", "black"]
+docs = ["Sphinx", "myst-nb", "sphinx-autoapi", "sphinx-rtd-theme"]
+build = ["build"]
+benchmark = ["snakeviz"]
+
+[project.urls]
+homepage = "https://example.com"
+documentation = "https://readthedocs.org"
+repository = "https://github.com"
+changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"multidim.data" = ["*"]
+"multidim.notebooks" = ["*"]

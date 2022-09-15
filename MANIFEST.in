@@ -1,0 +1,2 @@
+prune docs
+recursive-include docs/notebooks *.ipynb
