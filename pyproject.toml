@@ -28,7 +28,6 @@ dependencies = [
     "stata_setup",
     "PyYAML",
     "pyAesCrypt",
-    "ipykernel",
     "jupyter",
     "notebook",
     "pywin32; platform_system=='Windows'",
