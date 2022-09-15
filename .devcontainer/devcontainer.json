@@ -72,7 +72,7 @@
 	// 		"onAutoForward": "silent"
 	// },
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "(python -m pip install .) && (python -m pip install '.[formatting]')",
+	"postCreateCommand": "(sudo python -m pip install .) && (sudo python -m pip install '.[dev]')",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"
 }

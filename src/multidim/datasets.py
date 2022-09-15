@@ -2,7 +2,9 @@ from importlib_resources import files, as_file
 from pandas import read_pickle, DataFrame, read_stata
 import multidim.data
 
-__all__ = ["load_iris",]
+__all__ = [
+    "load_iris",
+]
 
 
 def _get_file_path(file: str):

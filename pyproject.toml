@@ -37,11 +37,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest", "pytest-cov", "mypy"]
-formatting = ["flake8", "black"]
-docs = ["Sphinx", "myst-nb", "sphinx-autoapi", "sphinx-rtd-theme"]
-build = ["build"]
-benchmark = ["snakeviz"]
+dev = ["pytest", "pytest-cov", "mypy", "flake8", "black", "Sphinx", 
+       "myst-nb", "sphinx-autoapi", "sphinx-rtd-theme", "build", "snakeviz"]
 
 [project.urls]
 homepage = "https://example.com"

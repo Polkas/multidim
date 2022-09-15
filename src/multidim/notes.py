@@ -2,10 +2,7 @@ import os, shutil
 
 
 def copy(path):
-    """
-    :param path:
-    :return:
-    """
+    """ """
     # build lecture dir
     new_dir = os.path.join(path, "notebooks")
     lecture_dir = os.path.join("..", os.path.dirname(__file__), "notebooks")
