@@ -5,8 +5,14 @@ Multidimensional Analysis WNE UW
 ## Installation
 
 ```bash
-$ pip install multidim
+$ git clone https://github.com/Polkas/multidim
+$ pip install .
+$ pip install ".[dev]"
+$ mkdir aw2022
+$ copy-aw-notes ./aw2022
 ```
+
+or simply open the github codespaces and go to src/multidim/notebooks
 
 ## Usage
 
