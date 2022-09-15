@@ -51,3 +51,6 @@ where = ["src"]
 [tool.setuptools.package-data]
 "multidim.data" = ["*"]
 "multidim.notebooks" = ["*"]
+
+[project.scripts]
+copy-aw-notes = "multidim:copy"
