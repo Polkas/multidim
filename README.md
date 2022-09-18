@@ -6,10 +6,20 @@ Multidimensional Analysis WNE UW
 
 ```bash
 $ git clone https://github.com/Polkas/multidim
+$ cd multidim
 $ pip install .
 $ pip install ".[dev]"
-$ mkdir aw2022
-$ copy-aw-notes ./aw2022
+$ jupyter notebook
+```
+
+You want to contribute, then fork https://github.com/Polkas/multidim
+
+```bash
+$ git clone https://github.com/YOURUSER/multidim
+$ cd multidim
+$ pip install .
+$ pip install ".[dev]"
+$ jupyter notebook
 ```
 
 or simply open the github codespaces and go to src/multidim/notebooks

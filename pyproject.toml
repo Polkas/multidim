@@ -27,17 +27,28 @@ dependencies = [
     "factor-analyzer",
     "stata_setup",
     "PyYAML",
-    "pyAesCrypt",
     "jupyter",
     "notebook",
     "pywin32; platform_system=='Windows'",
+    "flake8", 
+    "black",
+    "ipdb",
     "importlib-resources",
     "importlib-metadata",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-cov", "mypy", "flake8", "black", "Sphinx", 
-       "myst-nb", "sphinx-autoapi", "sphinx-rtd-theme", "build", "snakeviz"]
+dev = [
+  "pytest", 
+  "pytest-cov",
+  "mypy",
+  "Sphinx", 
+  "myst-nb",
+  "sphinx-autoapi", 
+  "sphinx-rtd-theme", 
+  "build", 
+  "snakeviz"
+]
 
 [project.urls]
 homepage = "https://example.com"
