@@ -38,17 +38,16 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = [
-  "pytest", 
-  "pytest-cov",
-  "mypy",
+test = ["pytest", "pytest-cov", "mypy"]
+docs = [
   "Sphinx", 
   "myst-nb",
   "sphinx-autoapi", 
-  "sphinx-rtd-theme", 
-  "build", 
-  "snakeviz"
+  "sphinx-rtd-theme"
 ]
+build = ["build"]
+benchmark = ["snakeviz"]
+all = ["multidim[test,docs,build,benchmark]"]
 
 [project.urls]
 homepage = "https://example.com"
