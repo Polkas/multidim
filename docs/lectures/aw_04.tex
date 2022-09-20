@@ -1,0 +1,338 @@
+\documentclass[]{beamer}
+\hypersetup{pdfpagemode=FullScreen}
+\hypersetup{pdfauthor={Maciej Nasiñski, Pawe³ Strawiñski}}
+
+\mode<presentation> {
+
+\definecolor{frameheadforeground}{RGB}{169,33,62}
+\definecolor{frameheadbackground}{RGB}{255,255,255}
+\usetheme{Warsaw}
+
+}
+
+\setbeamercolor{structure}{fg=frameheadforeground,bg=frameheadbackground}
+
+\usepackage[cp1250]{inputenc}
+\usepackage[OT4]{polski}
+\setlength\parskip{\medskipamount} \setlength\parindent{0pt}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\newtheorem{twr}{Twierdzenie}
+\newtheorem{lem}[twr]{Lemat}
+
+%%%%%%%%%%%%%%%%%%% tytu- %%%%%%%%%%%%%%%%%%%%%
+\title{Analiza Wielowymiarowa}
+\subtitle{Analiza zwi¹zku miêdzy zmiennymi}
+\date{Zajêcia 4 \\ 27 paŸdziernika 2022}
+\author{Maciej Nasiñski, Pawe³ Strawiñski}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  SLAJDY  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{section}{2} \addtocounter{subsection}{2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%slajd 1
+
+\frame{\titlepage}
+
+%slajd 2
+\begin{frame}{Plan zajêæ}
+\tableofcontents
+\end{frame}
+
+\section{Analiza korelacji}
+\subsection{Korelacja}
+%slajd 3
+\begin{frame}{Definicja korelacji}
+\begin{itemize}
+
+\item Wed³ug definicji s³ownikowej korelacja oznacza
+wspó³wystêpowanie
+
+\item Za Encyklopedi¹ Statystyki (red. Sadowski (1976))
+\begin{quote}
+Korelacja okreœla wzajemne powi¹zania pomiêdzy wybranymi
+zmiennymi. Charakteryzuj¹c korelacjê podajemy dwa czynniki:
+kierunek oraz si³ê. Wyrazem liczbowym korelacji jest wspó³czynnik
+korelacji
+\end{quote}
+
+\item Korelacja mo¿e byæ traktowana jako miara wzajemnego
+,,dopasowania'' zmiennych losowych
+
+\item Analiza korelacji jest metod¹ wykrywania wystêpowania
+statystycznej zale¿noœci miêdzy zmiennymi
+
+\end{itemize}
+\end{frame}
+%slajd 4
+\begin{frame}{Wspó³czynnik korelacji}
+\begin{itemize}
+
+\item Wspó³czynnik korelacji jest unormowan¹ miar¹ kowariancji
+(wspólnej wariancji) zmiennych losowych
+
+\item Ogólny wzór na wspó³czynnik korelacji
+
+\begin{displaymath}
+corr(X,Y) = \rho_{XY} = \frac{COV(X,Y)}{\sqrt{Var X} \sqrt{Var Y}}
+\end{displaymath}
+
+\item Wzór ma sens wy³¹cznie dla zmiennych losowych o skoñczonych
+dwóch pierwszych momentach, czyli zmiennych losowych, których
+rozk³ady s¹ stacjonarne w sensie s³abym
+
+\end{itemize}
+\end{frame}
+%slajd 5
+\begin{frame}{W³asnoœci wspó³czynnika korelacji}
+\begin{itemize}
+
+\item Wartoœci wspó³czynnika korelacji s¹ ograniczone
+\begin{displaymath}
+-1 \leq \rho_{XY} \leq 1
+\end{displaymath}
+
+\item Wartoœæ wspó³czynnika korelacji jest niezmiennicza wzglêdem
+przekszta³cenia afinicznego zmiennych losowych
+
+\begin{displaymath}
+\rho_{XY} = \rho_{(a+bX)(\alpha+\beta Y)}
+\end{displaymath}
+
+\item Wartoœæ bezwzglêdna wspó³czynnika korelacji wynosi 1, gdy
+zwi¹zek miêdzy zmiennymi losowymi jest liniowy
+
+\end{itemize}
+\end{frame}
+
+% wykrywanie zale¿noœci miêdzy zmiennymi,
+
+% podstawowe pojêcia w rachunku korelacji,
+
+\subsection{Miary zale¿noœci dwóch cech}
+
+% test niezale¿noœci chi-kwadrat,
+% po tabulate
+%slajd 6
+\begin{frame}{Test Chi2 Pearsona}
+\begin{itemize}
+
+\item Mo¿e byæ wykorzystany do
+
+\begin{itemize}
+\item sprawdzania, czy rozk³ad empiryczny zmiennej losowej jest zgodny z rozk³adem
+teoretycznym
+
+\item sprawdzenia, czy rozk³ady zmiennych losowych przedstawione w formie
+tablicy kontyngencji (tablicy krzy¿owej) s¹ niezale¿ne
+
+\end{itemize}
+
+\item Statystyka testowa ma postaæ
+\begin{displaymath}
+\chi^2 = \sum_{i=1}^I \sum_{j=1}^J \frac{n_{ij} -En_{ij}}{En_{ij}}
+\; \sim \chi^2((I-1)(J-1))
+\end{displaymath}
+gdzie: \\
+
+$i$ jest liczb¹ wierszy w tabeli krzy¿owej \\
+$j$ jest liczb¹ kolumn w tabeli krzy¿owej \\
+$n_{ij}$ liczb¹ obserwacji w komórce $ij$ \\
+$En_{ij}$ oczekiwan¹ liczb¹ obserwacji w komórce $ij$ \\
+\end{itemize}
+\end{frame}
+
+% wspó³czynnik zbie¿noœci V-Cramera,
+% po tabulate
+%slajd 7
+\begin{frame}{Wspó³czynnik V-Cramera}
+\begin{itemize}
+\item Statystyka V-Cramera jest unormowan¹ wersj¹ statystyki
+$\chi^2$
+
+\item Statystyka testowa ma postaæ
+\begin{displaymath}
+V = \sqrt{\frac{\chi^2}{n} \frac{1}{\min \{ I-1, J-1\}}}
+\end{displaymath}
+
+\item Dla tablicy o wymiarach 2X2, stosowany jest inny wzór i wówczas statystyka testowa przyjmuje wartoœci od -1 do 1
+
+\item Dla tablicy o wiêkszych wymiarach statystyka testowa przyjmuje wartoœci od 0 do 1
+
+\end{itemize}
+\end{frame}
+
+% wspó³czynnik korelacji liniowej Pearsona,
+% correlate
+%slajd 8
+\begin{frame}{Wspó³czynnik korelacji Pearsona}
+\begin{itemize}
+
+\item S³u¿y do wyznaczania si³y wspó³zale¿noœci zmiennych o rozk³adzie ci¹g³ym
+
+\item Niech $\mathbb{X}$ oraz $\mathbb{Y}$ bêd¹ zmiennymi losowymi o rozk³adzie ci¹g³ym
+
+\item Niech $\bar{x}=\frac{\sum_{i=1}^n x_i}{n}$, $\bar{y}=\frac{\sum_{i=1}^n y_i}{n}$
+
+\item Wspó³czynnik korelacji dany jest wówczas wzorem
+
+\begin{displaymath}
+r_{XY} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}}
+\end{displaymath}
+
+\item Jego wartoœæ informuje o sile i kierunku zale¿noœci liniowej
+
+\item Dla zmiennych o rozk³adzie normalnym jest zgodnym estymatorem wspó³czynnika korelacji
+
+\item Jego wartoœci mog¹ byæ zniekszta³cone przez wystêpowanie obserwacji o wartoœciach skrajnych
+
+\end{itemize}
+\end{frame}
+% wspó³czynnik korelacji cz¹stkowej Kendalla,
+% ktau
+%slajd 9
+\begin{frame}{Wspó³czynnik korelacji Kendalla}
+\begin{itemize}
+\item O ka¿dej parze $(x_i, y_i)$, $(x_j, y_j)$ mówimy, ¿e jest zgodna, je¿eli
+\begin{displaymath}
+(x_i - x_j)(y_i - y_j)>0
+\end{displaymath}
+\item W przeciwnym przypadku mówimy, ¿e jest niezgodna
+\item Niech
+\begin{itemize}
+\item P bêdzie liczb¹ par zgodnych
+\item Q bêdzie liczb¹ par niezgodnych
+\item N bêdzie liczebnoœci¹ próby
+\end{itemize}
+\item Wówczas statystyka testowa ma postaæ
+
+\begin{displaymath}
+\tau = 2 \frac{P-Q}{N(N-1)} \; \sim \; N(0,1)
+\end{displaymath}
+\end{itemize}
+\end{frame}
+%slajd 10
+\begin{frame}{Wspó³czynnik korelacji Kendalla}
+\begin{itemize}
+\item Mierzy si³ê zale¿noœci monotonicznej miêdzy zmiennymi losowymi
+
+\item Jest wspó³czynnikiem nieparametrycznym, jego wartoœæ nie zale¿y od rozk³adu zmiennych losowych
+
+\item Do obliczenia jego wartoœci wykorzystywane s¹ rangi obserwacji, dziêki czemu wartoœci wspó³czynnika s¹ odporne na wystêpowanie obserwacji odstaj¹cych
+
+\end{itemize}
+\end{frame}
+
+% wspó³czynnik korelacji rang Spearmana,
+% spearman
+%slajd 11
+\begin{frame}{Wspó³czynnik korelacji rang Spearmana}
+\begin{itemize}
+\item Jest to wspó³czynnik korelacji Pearsona obliczony dla rang wartoœci zmiennych losowych
+
+\item Mierzy si³ê zale¿noœci monotonicznej
+
+\item Jest miar¹ si³y zwi¹zku liniowego i wy³¹cznie do takich zwi¹zków powinien byæ stosowany
+\end{itemize}
+\end{frame}
+
+
+\section{Analiza zró¿nicowania}
+%slajd 12
+\begin{frame}{Analiza zró¿nicowania}
+\begin{itemize}
+
+\item Analiza zró¿nicowania, w jêzyku angielskim \emph{Analysis of
+variance (ANOVA)} to ogólna nazwa dla grupy modeli statystycznych
+u¿ywanych do analizy ró¿nic w œrednich wartoœciach cechy pomiêdzy
+grupami
+
+\item Zró¿nicowanie zmiennej jest dzielone na sk³adowe, które
+mo¿na przypisaæ ró¿nym czynnikom
+
+\item Historycznie zosta³a zaproponowana przez R. A. Fishera w
+celu analizy danych eksperymentalnych
+
+\end{itemize}
+\end{frame}
+%slajd 13
+\begin{frame}{Równoœæ analizy wariancji}
+\begin{itemize}
+
+\item Analiza wariancji oparta jest na równoœci analizy wariancji
+
+\begin{displaymath}
+TSS = ESS + RSS
+\end{displaymath}
+
+\item Niech: $N$ jest liczebnoœci¹ próby, $J$ jest liczb¹ wartoœci w przypadku zmiennej nominalnej lub przedzia³owej, dla zmiennej ci¹g³ej $J=1$ \\
+\begin{itemize}
+\item TSS jest ca³kowit¹ sum¹ kwadratów, ma $N-1$ stopni swobody.
+\item ESS jest wyjaœnion¹ sum¹ kwadratów, ma $J-1$ stopni swobody.
+\item RSS jest resztow¹ sum¹ kwadratów, ma $N-J$ stopni swobody.
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\subsection{Jednoczynnikowa analiza wariancji}
+%slajd 14
+\begin{frame}{Jednoczynnikowa analiza wariancji (1)}
+\begin{itemize}
+\item Jednoczynnikowa analiza wariancji jest testem statystycznym równoœci œrednich w grupach
+
+\item Mo¿e byæ traktowana jako uogólnienie testu t na wiêksz¹ liczbê grup
+
+\item Wielokrotne przeprowadzenie testu t powodowa³oby powstanie obci¹¿enia Lovella
+
+\item Za³o¿enia analizy
+\begin{itemize}
+    \item cecha w ka¿dej grupie ma rozk³ad normalny
+    \item grupy s¹ niezale¿ne
+    \item grupy maj¹ cechy losowych prób prostych
+    \item wariancje w grupach s¹ równe
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+%slajd 15
+\begin{frame}{Jednoczynnikowa analiza wariancji (2)}
+\begin{itemize}
+\item Porównywana jest wariancja wewn¹trzgrupowa i miêdzygrupowa
+
+\item Statystyka s³u¿¹ca do weryfikacji hipotezy o równoœci œrednich jest ilorazem wariancji wewn¹trzgrupowej (wyjaœnionej) i miêdzygrupowej (resztowej)
+
+\begin{displaymath}
+F=\frac{ESS}{RSS} \; \sim F(J,N-J)
+\end{displaymath}
+
+\item Nieparametrycznym odpowiednikiem jednoczynnikowej analizy wariancji jest test Kruskala-Wallisa
+
+\end{itemize}
+\end{frame}
+\subsection{Wieloczynnikowa analiza wariancji}
+%slajd 16
+\begin{frame}{Wieloczynnikowa analiza wariancji}
+\begin{itemize}
+
+\item Celem wieloczynnikowej analizy wariancji jest zbadanie wp³ywu wiêcej ni¿ jednego czynnika na ca³kowite zró¿nicowanie
+
+\item Dodatkowo w analizie uwzglêdniane s¹ efekty interakcji miêdzy czynnikami
+
+\item Hipotez¹ zerow¹ jest nadal brak zró¿nicowania œrednich
+
+\item Wzory komplikuj¹ siê, wymuszaj¹ obliczenie sum kwadratów zwi¹zanych z ka¿dym czynnikiem i ka¿d¹ interakcj¹
+
+\end{itemize}
+\end{frame}
+
+
+\end{document}

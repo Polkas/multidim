@@ -1,0 +1,219 @@
+\documentclass[]{beamer}
+\hypersetup{pdfpagemode=FullScreen} \hypersetup{pdfauthor={Maciej
+Nasiñski, Pawe³ Strawiñski}} \mode<presentation> {
+
+\definecolor{frameheadforeground}{RGB}{169,33,62}
+\definecolor{frameheadbackground}{RGB}{255,255,255}
+\usetheme{Warsaw}
+
+}
+
+\setbeamercolor{structure}{fg=frameheadforeground,bg=frameheadbackground}
+
+\usepackage[cp1250]{inputenc}
+\usepackage[OT4]{polski}
+\setlength\parskip{\medskipamount} \setlength\parindent{0pt}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\newtheorem{twr}{Twierdzenie}
+\newtheorem{lem}[twr]{Lemat}
+
+%%%%%%%%%%%%%%%%%%% tytu- %%%%%%%%%%%%%%%%%%%%%
+\title{Analiza Wielowymiarowa}
+\subtitle{Testy parametryczne i nieparametryczne}
+\author{Maciej Nasiñski, Pawe³ Strawiñski}
+\institute{Uniwersytet Warszawski}
+\date{Zajêcia 3 \\ 20 paŸdziernika 2022}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  SLAJDY  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{section}{2} \addtocounter{subsection}{2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%slajd 1
+
+\frame{\titlepage}
+
+%slajd 2
+\begin{frame}
+\tableofcontents
+\end{frame}
+\section{Porównanie œrednich}
+\subsection{Test t}
+%slajd 3
+%test t - ttest
+\begin{frame}{Test t}
+\begin{itemize}
+\item Najprostszym sposobem porównania œrednich jest wykorzystanie testu opartego na statystyce o rozk³adzie t-Studenta
+
+\item Niech zbiór $\mathbb{X}$ liczy $n$ obserwacji, a zbiór $\mathbb{Y}$ $m$ obserwacji
+
+\item Wówczas przy prawdziwej $H_0$ o równoœci œrednich
+
+\begin{displaymath}
+t=\frac{\bar{X}-\bar{Y}}{\hat{var}} \; \sim \; t(n+m-2)
+\end{displaymath}
+
+\item Gdzie $\hat{var}$ jest wariancj¹ zmiennej w po³¹czonych zbiorach
+
+\item Uwaga, gdy $X$ lub $Y$ nie ma rozk³adu normalnego to rozk³ad statystyki testowej mo¿e ró¿niæ siê od zak³adanego
+
+\end{itemize}
+\end{frame}
+\subsection{Test dla proporcji}
+%test dla proporcji - prtest
+%slajd 4
+\begin{frame}{Test proporcji}
+\begin{itemize}
+\item Test przeznaczony do weryfikowania hipotez o równoœci proporcji
+
+\item Niech zbiór $\mathbb{X}$ liczy $n$ obserwacji, a zbiór $\mathbb{Y}$ $m$ obserwacji
+
+\item Wówczas przy prawdziwej $H_0$ o równoœci proporcji
+
+\begin{displaymath}
+z = \frac{p_x - p_y}{\sqrt{\hat{p}(1-\hat{p})}(\frac{1}{n}+\frac{1}{m})} \; \sim \; N(0,1)
+\end{displaymath}
+
+\item gdzie $\hat{p}$ jest udzia³em sukcesów w po³¹czonych zbiorach
+
+\end{itemize}
+\end{frame}
+\section{Porównanie wariancji}
+\subsection{Test F}
+%slajd 5
+%test F
+\begin{frame}{Test F}
+\begin{itemize}
+\item Najprostszym sposobem porównania wariancji jest wykorzystanie statystyki o rozk³adzie F
+
+\item Niech zbiór $\mathbb{X}$ liczy $n$ obserwacji, a zbiór $\mathbb{Y}$ $m$ obserwacji
+
+\item Wówczas przy prawdziwej $H_0$ o równoœci wariancji
+
+\begin{displaymath}
+F=\frac{S^2_x}{S^2_y} \; \sim \; F(n-1,m-1)
+\end{displaymath}
+
+\item Ale rozk³ad tej statystyki jest czu³y na spe³nienie za³o¿enia o normalnoœci rozk³adu
+
+\end{itemize}
+\end{frame}
+
+\subsection{Test Levene}
+%test Levene - robvar
+%slajd 6
+\begin{frame}{Test Levena}
+\begin{itemize}
+
+\item Levene (1960) zaproponowa³ test równoœci wariancji odporny na brak normalnoœci rozk³adu analizowanej cechy
+
+\item Brown i Forsythe (1974) zaproponowali by w teœcie œredni¹ zast¹piæ median¹ która jest bardziej odporn¹ miar¹ tendencji centralnej
+
+\item Ta poprawka jest istotna w przypadku skoœnych rozk³adów zmiennych
+
+\item Statystyka oparta jest o odchylenia wartoœci zmiennych od œrednich w grupach
+
+\end{itemize}
+\end{frame}
+%slajd 7
+\begin{frame}{Statystyka testowa}
+\begin{itemize}
+\item Niech $X_{ij}$ bêdzie obserwacj¹ $j$ w grupie $i$
+
+\item Niech $Z_{ij} = \mid X_{ij} - \bar{X}_i \mid$, gdzie $\bar{X}_i$ jest œredni¹ wartoœci¹ zmiennej w grupie $i$.
+
+\begin{displaymath}
+W_0 = \frac{\frac{ \sum_i n_i (Z_i - \bar{Z})^2}{(g-1)} }{ \frac{\sum_i (Z_{ij} - \bar{Z}_i)^2}{\sum_i (n_i - 1)}}
+\end{displaymath}
+
+\item gdzie $g$ to liczba grup, a $n_i$ oznacza liczebnoœæ grupy $i$
+
+\end{itemize}
+\end{frame}
+\section{Tabelaryczny opis danych}
+% crosstab
+%slajd 8
+\begin{frame}{Tabela krzy¿owa}
+\begin{itemize}
+
+\item Tabela kontyngencji (krzy¿owa) jest typem tabeli w formacie
+macierzy, która wyœwietla (wielowymiarowy) rozk³ad czêstoœci
+zmiennych
+
+\item Dostarcza podstawowego obrazu wzajemnych relacji miêdzy
+dwiema zmiennymi i mo¿e pomóc w znalezieniu interakcji miêdzy nimi
+
+\item Termin tabela kontyngencji zosta³ po raz pierwszy u¿yty
+przez Karla Pearsona w pracy z 1904 roku \emph{On the Theory of
+Contingency and Its Relation to Association and Normal
+Correlation}
+
+\item Problemem jest znalezienie struktury (bezpoœredniej)
+zale¿noœci le¿¹cej u podstaw zmiennych zawartych w
+wielowymiarowych tablicach krzy¿owych
+
+\item Tabela przestawna to sposób na tworzenie tabel krzy¿owych z
+wykorzystaniem arkusza kalkulacyjnego
+\end{itemize}
+\end{frame}
+%slajd 9
+\begin{frame}
+\begin{center}
+\begin{tabular}{c|cc|c}
+      1978 &  Domestic   &Foreign &     Total \\
+\hline
+         1 &         2   &      0 &         2 \\
+         2 &         8   &      0 &         8 \\
+         3 &        27   &      3 &        30 \\
+         4 &         9   &      9 &        18 \\
+         5 &         2   &      9 &        11 \\
+\hline
+     Razem &        48   &     21 &        69 \\
+\end{tabular}
+\end{center}
+\end{frame}
+\section{Porównanie rozk³adów}
+% Kruskal - Wallis - kwallis
+%slajd 10
+\subsection{Test Kruskala-Wallisa}
+\begin{frame}{Test Kruskala-Wallisa}
+\begin{itemize}
+
+\item Test Kruskala-Wallisa jest uogólnieniem testu Manna-Whitneya na wiêksz¹ liczbê grup
+
+\item Test wykorzystuje rangowanie obserwacji
+
+\item Wzór statystyki testowej jest skomplikowany. Je¿eli nie wystêpuj¹ obserwacje o identycznych rangach to niech $n$ bêdzie liczb¹ obserwacji, $n_j$ liczb¹ obserwacji z w zbiorze $j$, a $R_j$ bêdzie sum¹ rang w $j$-tym zbiorze:
+\begin{displaymath}
+KW = \frac{12}{n(n+1)} \sum_{j=1}^J \frac{R_j^2}{n_j} - 3(n+1) \; \sim_a \; \chi^2(J-1)
+\end{displaymath}
+\item Test mo¿e byæ równie¿ traktowany jako nieprarametryczny odpowiednik jednoczynnikowej analizy wariancji
+
+\end{itemize}
+\end{frame}
+\subsection{Test Ko³mogorowa-Smirnowa}
+%Kolmogorov - Smirnov - ksmirnov
+%slajd 11
+\begin{frame}{Test Ko³mogorowa-Smirnowa}
+\begin{itemize}
+
+\item Jest wykorzystywany  do porównywania rozk³adów jednowymiarowych cech statystycznych.
+
+\item Test ma dwie wersjê:
+\begin{itemize}
+\item dla jednej grupy, s³u¿y do weryfikacji hipotezy czy dana zmienna na okreœlony rozk³ad. Ta wersja nazywana jest testem zgodnoœci Ko³mogorowa.
+\item dla dwóch grup, s³u¿¹cy do weryfikacji hipotezy czy rozk³ad zmiennej w dwóch grupach jest identyczny
+\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\end{document}

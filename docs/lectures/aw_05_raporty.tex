@@ -1,0 +1,128 @@
+\documentclass{beamer}
+\hypersetup{pdfpagemode=FullScreen} \hypersetup{pdfauthor={Maciej
+Nasiñski, Pawe³ Strawiñski}}
+
+\mode<presentation> {
+  \definecolor{frameheadforeground}{RGB}{169,33,62}
+  \definecolor{frameheadbackground}{RGB}{255,255,255}
+
+  \usetheme{Warsaw}
+  %\setbeamercovered{transparent}
+}
+
+\setbeamercolor{structure}{fg=frameheadforeground,bg=frameheadbackground}
+
+\usepackage[cp1250]{inputenc}
+\usepackage[OT4]{polski}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\newtheorem{twr}{Twierdzenie}
+\newtheorem{lem}[twr]{Lemat}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\title{Analiza wielowymiarowa}
+\subtitle{Raporty: terminy i wskazówki}
+\author{Maciej Nasiñski, Pawe³ Strawiñski}
+\institute{Uniwersytet Warszawski}
+\date{Zajêcia 1 \\ 3 listopada 2022}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Raporty}
+  \begin{itemize}
+  \item Wykonanie badania w grupach. Preferujemy grupy 3 osobowe. Prosimy unikaæ grup sk³adaj¹cych siê wy³¹cznie z osób z II roku studiów II stopnia
+  \item Limit 4 raporty z jednej techniki badawczej
+  \item Mo¿na dobraæ siê w zespó³ z osobami z innej godziny
+  \item W razie problemów w zespole, prosimy nas informowaæ, postaramy siê znaleŸæ rozwi¹zanie
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Raporty -- tematyka}
+  \begin{itemize}
+  \item Tematy do wyboru z poni¿ej listy, zg³aszane prze pocztê elektroniczn¹ \underline{do obu prowadz¹cych}:
+    \begin{enumerate}
+    \item analiza korelacji i analiza ANOVA
+    \item analiza dyskryminacji
+    \item klasyczne metody segmentacji
+    \item wspó³czesne techniki segmentacji
+    \item analiza czynnikowa, inne techniki redukcji wymiaru ($\star$)
+    \end{enumerate}
+  \end{itemize}
+   \begin{alert}{UWAGA!}
+     O~przydzieleniu tematu decyduje kolejnoœæ zg³oszeñ
+   \end{alert}
+\end{frame}
+
+\begin{frame}{Zg³oszenia tematów}
+  \begin{itemize}
+    \item Zg³oszenie powinno zawieraæ: wybran¹ technikê badawcz¹, hipotezy/cel, opis Ÿród³a/bazy danych, propozycjê literatury
+    \item Zg³oszenie mo¿e byæ:
+      \begin{enumerate}
+      \item \textbf{zakceptowane} (odpowiedŸ ``akceptujê temat'' od prowadz¹cego)
+      \item \textbf{negocjowane} (prowadz¹cy zwracaj¹ siê o uszczegó³owienie lub modyfikacjê)
+      \item \textbf{odrzucone} (prowadz¹cy podaje merytoryczne/formalne powody, dla których podany temat nie mo¿e zostaæ zrealizowany)
+      \end{enumerate}
+  \end{itemize}
+   \begin{alert}{UWAGA!}
+     Zg³oszenia znacz¹co niepe³ne nie otrzymuj¹ statusu negocjowanych (nie ma np. rezerwacji techniki)
+   \end{alert}
+\end{frame}
+
+\begin{frame}{Wymagania dotycz¹ce raportu}
+  \begin{itemize}
+  \item WyraŸnie sformu³owana hipoteza badawcza lub cel
+  \item Krótki wstêp teoretyczny wraz z odniesieniami do istotnej literatury
+  \item Literatura: co najmniej 3 artyku³y angielskojêzyczne
+  \item Opis i Ÿród³a wykorzystanych danych
+  \item Sformu³owany model
+  \item Wyniki przeprowadzonej empirycznej analizy wraz z~komentarzem, wynikaj¹cymi z nich wnioskami oraz odniesieniem do literatury
+  \end{itemize}
+  \end{frame}
+
+\begin{frame}{Czego nie proponowaæ}
+  \begin{itemize}
+  \item Badanie ma byæ æwiczeniem z wykorzystaniem ``realnych'' danych, tak jak w ¿yciu zawodowym
+  \item Wa¿ne jest jak Pañstwo sobie radz¹ i reaguj¹ na pojawiaj¹ce siê problemy, a nie spe³nienie wszystkich za³o¿eñ techniki
+  \item (Realnoœæ danych) Prosimy nie korzystaæ ze zbiorów danych pochodz¹cych z~podrêczników, tutoriali, stron wyk³adowców
+  \item (Antyplagiat) Prosimy nie korzystaæ z Diagnozy Spo³ecznej (badanie przerwane) ani powtarzaæ analiz przeprowadzanych podczas zajêæ
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Wymagania dotycz¹ce raportu -- strona techniczna}
+  \begin{itemize}
+  \item Raport w formacie pdf
+  \item Raport powinien byæ wyczerpuj¹cy -- forma artyku³u, a nie logu z programu
+  \item Oprogramowanie dowolne (ostro¿nie z SAS) -- wa¿na jest poprawnoœæ uzyskanych wyników i ich opis
+  \item Prosimy równie¿ zadbaæ o schludnoœæ raportu (brak literówek, poprawnoœæ odwo³añ„ do literatury, estetykê tabel i opisów...)
+  \item 30 000 znaków (ok. 18 stron bez obrazków), przekroczenie limitu nale¿y zg³osiæ i uzasadniæ wyk³adowcom
+  \item Nie czytamy prac anonimowych i bez ponumerowanych stron
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Na co zwracaæ uwagê przy opisie badania?}
+  \begin{itemize}
+  \item Czy temat jest wa¿ny?
+  \item Czy temat jest osadzony w teorii ekonomii lub czy jest to badanie interdyscyplinarne (t³o teoretyczne)?
+  \item Czy hipotezy s¹ weryfikowalne i poprawnie sformu³owane?
+  \item Opis bazy danych
+  \item Szacowanie parametrów modelu
+  \item Weryfikacja za³o¿eñ metody , okreœlenie ogólnoœci wyników, ograniczenia badania
+  \item Weryfikacja hipotez (o ile s¹)
+  \item Interpretacja wyników, wnioski, odniesienie do literatury
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Terminarz}
+  \begin{enumerate}
+  \item Zg³oszenie sk³adu osobowego grup i tematów prac zaliczeniowych: \textbf{12~listopada 20:00 - 25 listopada 20:00}
+  \item Przes³anie wybranej bazy danych \underline{do obu prowadz¹cych}: \textbf{12~listopada 20:00 -  30~listopada 20:00} (je¿eli baza jest ogólnodostêpna wystarczy link i wskazanie zmiennych)
+  \item Przes³anie finalnej wersji raportu oraz dostarczenie papierowej wersji pracy na WNE: \textbf{20 stycznia 2023 20:00}
+  \end{enumerate}
+\end{frame}
+
+\end{document}

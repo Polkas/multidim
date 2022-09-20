@@ -1,0 +1,324 @@
+\documentclass[]{beamer}
+\hypersetup{pdfpagemode=FullScreen} \hypersetup{pdfauthor={Maciej
+Nasiñski, Pawe³ Strawiñski}} \mode<presentation> {
+
+\definecolor{frameheadforeground}{RGB}{169,33,62}
+\definecolor{frameheadbackground}{RGB}{255,255,255}
+\usetheme{Warsaw}
+
+}
+
+\setbeamercolor{structure}{fg=frameheadforeground,bg=frameheadbackground}
+
+\usepackage[cp1250]{inputenc}
+\usepackage[OT4]{polski}
+\setlength\parskip{\medskipamount} \setlength\parindent{0pt}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\newtheorem{twr}{Twierdzenie}
+\newtheorem{lem}[twr]{Lemat}
+
+%%%%%%%%%%%%%%%%%%% tytu- %%%%%%%%%%%%%%%%%%%%%
+\title{Analiza Wielowymiarowa}
+\subtitle{Statystyczne podstawy}
+\author{Maciej Nasiñski, Pawe³ Strawiñski}
+\institute{Uniwersytet Warszawski}
+\date{Zajêcia 2 \\ 13 paŸdziernika 2022}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  SLAJDY  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\addtocounter{section}{2} \addtocounter{subsection}{2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%slajd 1
+
+\frame{\titlepage}
+
+%slajd 2
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{Skale pomiarowe}
+%slajd 3
+\begin{frame}{Rodzaje skal pomiarowych}
+\begin{itemize}
+\item Skala nominalna
+\item Skala porz¹dkowa (rangowa)
+\item Skala przedzia³owa
+\item Skala ilorazowa
+\item Skala absolutna
+\end{itemize}
+\end{frame}
+%slajd 4
+\begin{frame}{Skala Likerta}
+\begin{enumerate}
+\item Nie zgadzam siê
+\item Raczej nie zgadzam siê
+\item Nie mam zdania
+\item Raczej zgadzam siê
+\item Zgadzam siê
+\end{enumerate}
+\end{frame}
+\section{Statystyczne w³asnoœci wybranych rozk³adów}
+%rozk³ad normalny
+%slajd 5
+\begin{frame}{Rozk³ad normalny}
+\begin{itemize}
+
+\item Rozk³ad normalny jest jednym z najwa¿niejszych rozk³adów
+prawdopodobieñstwa
+
+\item Jest czêsto wykorzystywany w naukach przyrodniczych i
+spo³ecznych do modelowania zmiennych losowych o wartoœciach
+rzeczywistych, których rozk³ady nie s¹ znane
+
+\item Przyczyn¹ jest czêstoœæ wystêpowania w naturze.
+
+\item Z Centralnego Twierdzenia Granicznego wynika, ¿e suma
+niezale¿nych czynników losowych ma rozk³ad zbli¿ony do rozk³adu
+normalnego
+
+\item Ca³y rozk³ad opisany jest przez dwa parametry: œredni¹ i
+odchylenie standardowe $X \sim N(\mu, \sigma^2)$
+
+\end{itemize}
+\end{frame}
+%slajd 6
+\begin{frame}{Rozk³ad normalny}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{r_norm.eps}}
+\end{figure}
+\end{frame}
+%rozk³ad t-Studenta
+%slajd 7
+\begin{frame}{Rozk³ad t-Studenta}
+\begin{itemize}
+
+\item Rozk³ad opracowano dla oszacowania przedzia³u ufnoœci dla
+œredniej gdy prawdziwa wartoœæ œredniej i wariancji nie jest znana
+
+\item Gdy liczba stopni swobody jest niewielka rozk³ad na grubsze
+ogony i ni¿sz¹ kurtozê ni¿ rozk³ad normalny
+
+\item Gdy liczba stopni swobody roœnie gêstoœæ rozk³adu t-Studenta
+staje siê podobna do gêstoœci rozk³adu normalnego
+
+\item Rozk³ad jest stosowany w estymacji przedzia³owej, testach
+parametrycznych, oraz w testach istotnoœci parametrów
+statystycznych – dla prób o ma³ej liczbie obserwacji, mniejszej
+ni¿ 30
+
+\end{itemize}
+\end{frame}
+%slajd 8
+\begin{frame}{Rozk³ad t-Studenta}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{r_tstud.eps}}
+\end{figure}
+\end{frame}
+%rozk³ad chi^2
+%slajd 9
+\begin{frame}{Rozk³ad chi-kwadrat}
+\begin{itemize}
+
+\item Rozk³ad chi-kwadrat z k stopniami swobody to rozk³ad sumy
+kwadratów k niezale¿nych zmiennych losowych o standardowym
+rozk³adzie normalnym
+
+\item Rozk³ad jest wykorzystywany w testach niezale¿noœci
+rozk³adów i testach zgodnoœci z zadanym rozk³adem
+
+\item Œrednia rozk³adu wynosi $k$, wariancja $2k$.
+
+\end{itemize}
+\end{frame}
+%slajd 10
+\begin{frame}{Rozk³ad chi-kwadrat}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{r_chi2.eps}}
+\end{figure}
+\end{frame}
+%rozk³ad F
+%slajd 11
+\begin{frame}{Rozk³ad F}
+\begin{itemize}
+\item Rozk³ad F Fishera-Snedecora jest zdefiniowany jako iloraz
+dwóch niezale¿nych zmiennych losowych o rozk³adzie chi-kwadrat
+
+\item Rozk³ad F równie¿ mo¿na zdefiniowaæ jako rozk³ad kwadratu
+zmiennej losowej o rozk³adzie t-Studenta.
+
+\item Jest wykorzystywany w testach statystycznych
+\end{itemize}
+\end{frame}
+%slajd 12
+\begin{frame}{Rozk³ad F}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{r_F.eps}}
+\end{figure}
+\end{frame}
+\section{Przydatne statystyki}
+%œrednia i wariancja
+%slajd 13
+\begin{frame}{Œrednia i wariancja}
+\begin{itemize}
+\item Œrednia arytmetyczna to inaczej pierwszy moment zwyk³y,
+nazywana jest równie¿ wartoœci¹ przeciêtn¹ lub wartoœci¹
+oczekiwan¹
+
+\item Œrednia arytmetyczna jest miar¹ po³o¿enia rozk³adu i
+jednoczeœnie miar¹ tendencji centralnej.
+
+\item Wariancja to inaczej drugi moment centralny
+
+\item Wariancja jest miar¹ rozproszenia wartoœci cechy wokó³
+œredniej
+
+\end{itemize}
+\end{frame}
+%kwantyle
+%slajd 14
+\begin{frame}{Kwantyle}
+\begin{itemize}
+
+\item Kwantyle to punkty przeciêcia dziel¹ce dziedzinê rozk³adu
+prawdopodobieñstwa na ci¹g³e przedzia³y o równych
+prawdopodobieñstwach lub dziel¹ce obserwacje w próbie na podzbiory
+o równej liczebnoœci.
+
+\item Liczba kwantyli jest o jeden mniejsza liczba utworzonych
+grup.
+
+\item Czêsto wykorzystywane kwantyle maj¹ specjalne nazwy, takie
+jak kwartyle (cztery grupy), decyle (dziesiêæ grup) i percentyle
+(100 grup). Tworzone grupy s¹ okreœlane jako po³ówki, æwiartki
+itp., chocia¿ czêsto terminy dotycz¹ce kwantyla s¹ u¿ywane do
+tworzonych grup, a nie do punktów ciêcia.
+
+\end{itemize}
+\end{frame}
+%IRQ i wykres pude³kowy
+%slajd 15
+\begin{frame}{Rozstêp miêdzykwantylowy}
+\begin{itemize}
+\item Rozstêp miêdzykwantylowy (æwiartkowy) to ró¿nica miêdzy
+trzecim a pierwszym kwartylem
+
+\item Pokazuje zró¿nicowanie wartoœci cechy
+
+\item Graficznym przedstawieniem pierwszego kwartla, mediany i
+trzeciego kwartyla oraz 95\% przedzia³u ufnoœci jest wykres
+pude³kowy (ang. \emph{boxplot})
+\end{itemize}
+\end{frame}
+%slajd 16
+\begin{frame}{Wykres pude³kowy}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{boxplot.eps}}
+\end{figure}
+\end{frame}
+%histogram
+%slajd 17
+\begin{frame}{Histogram}
+\begin{itemize}
+\item Histogram jest to graficzny sposób przedstawiania rozk³adu
+empirycznego wartoœci cechy
+
+\item Sk³ada siê z prostok¹tów umieszczonych na osi wspó³rzêdnych
+
+\item Szerokoœæ prostok¹tów jest sta³a i wyznacza podzia³ na
+przedzia³y klasowe wartoœci cechy
+
+\item Wysokoœæ prostok¹tów jest okreœlona przez liczebnoœci lub
+czêstoœci elementów nale¿¹cych do okreœlonego przedzia³u klasowego
+
+\end{itemize}
+\end{frame}
+%slajd 18
+\begin{frame}{Histogram}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{histogram.eps}}
+\end{figure}
+\end{frame}
+%estymator j¹drowy
+%slajd 19
+\begin{frame}{Estymator j¹drowy}
+\begin{itemize}
+\item Estymator j¹drowy gêstoœci jest to nieparametryczny
+estymator przeznaczony do wyznaczania gêstoœci rozk³adu zmiennej
+losowej na podstawie próby
+
+\item Nie wymagana wiedzy \emph{a priori} o typie wystêpuj¹cego
+rozk³adu
+
+\item Najprostszym nieparametrycznym estymatorem gêstoœci jest
+histogram.
+
+\item Estymator j¹drowy w pewnym stopniu przypomina odpowiednio
+wyg³adzony wykres histogramu o ma³ej szerokoœci cel.
+\end{itemize}
+\end{frame}
+%slajd 20
+\begin{frame}{Estymator j¹drowy}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{hist_025.eps}}
+\end{figure}
+\end{frame}
+%slajd 21
+\begin{frame}{Estymator j¹drowy}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{hist_050.eps}}
+\end{figure}
+\end{frame}
+%slajd 22
+\begin{frame}{Estymator j¹drowy}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{hist_100.eps}}
+\end{figure}
+\end{frame}
+%slajd 23
+\begin{frame}{Estymator j¹drowy}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{hist_200.eps}}
+\end{figure}
+\end{frame}
+%slajd 24
+\begin{frame}{Estymator j¹drowy}
+\begin{figure}[!ht]\centering
+   \fbox{\includegraphics[scale=0.65]{kden.eps}}
+\end{figure}
+\end{frame}
+\section{Opis danych}
+%slajd 25
+\begin{frame}{Jednowymiarowa tabela czêstoœci}
+\begin{itemize}
+
+\item Jednowymiarowa tabela rozk³adu czêstoœci to rozk³ad wartoœci
+cechy w próbie (populacji)
+
+\item Ka¿dy wpis w tabeli zawiera liczbê wyst¹pieñ wartoœci lub
+czêstotliwoœæ w okreœlonej grupie lub przedziale
+
+\item W ten sposób tabela podsumowuje rozk³ad wartoœci w próbce.
+\end{itemize}
+\begin{center}
+\begin{tabular}{ccc}
+  samochód     & liczba & czêstoœæ \\
+  \hline
+  krajowy     & 52 & 70{,}3\% \\
+  zagraniczny & 22 & 29{,}7\%\\
+  \hline
+  razem       & 74 & 100\%\\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\end{document}

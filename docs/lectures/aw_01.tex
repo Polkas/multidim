@@ -1,0 +1,135 @@
+\documentclass{beamer}
+\hypersetup{pdfpagemode=FullScreen}
+\hypersetup{pdfauthor={Maciej Nasiñski, Pawe³ Strawiñski}}
+
+\mode<presentation> {
+  \definecolor{frameheadforeground}{RGB}{169,33,62}
+  \definecolor{frameheadbackground}{RGB}{255,255,255}
+
+  \usetheme{Warsaw}
+  %\setbeamercovered{transparent}
+}
+
+\setbeamercolor{structure}{fg=frameheadforeground,bg=frameheadbackground}
+
+\usepackage[cp1250]{inputenc}
+\usepackage[OT4]{polski}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\newtheorem{twr}{Twierdzenie}
+\newtheorem{lem}[twr]{Lemat}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\title{Analiza wielowymiarowa}
+\subtitle{Wprowadzenie}
+\author{Maciej Nasiñski, Pawe³ Strawiñski}
+\institute{Uniwersytet Warszawski}
+\date{Zajêcia 1 \\ 6 paŸdziernika 2022}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+\section{Sprawy organizacyjne}
+
+\begin{frame}{Prowadz¹cy}
+  \begin{itemize}
+  \item mgr Maciej Nasiñski
+    \begin{itemize}
+     \item mail: mnasinski@wne.uw.edu.pl
+     \item strona: \url{https://github.com/Polkas}
+    \item dy¿ur: czwartek 18:30, WNE, p. 304, po umówieniu e-mailem
+    \end{itemize}
+  \item dr hab., prof. ucz. Pawe³ Strawiñski
+    \begin{itemize}
+    \item mail: pstrawinski@wne.uw.edu.pl
+    \item strona: \url{coin.wne.uw.edu.pl/pstrawinski}
+    \item dy¿ur: wtorek 17:15, WNE, p. 304, po umówieniu e-mailem
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Kontakt przy wykorzystaniu poczty elektronicznej}
+  \begin{itemize}
+  \item W celu utrzymania porz¹dku podczas kontaktu z Pañstwem prosimy o stosowanie formatu tytu³u wiadomoœci elektronicznych:\\
+    \begin{center}
+      AW\_Nazwisko\_skrót\_sprawy
+    \end{center}
+  \item Niedopuszczalne jest rozpoczynanie zupe³nie nowego tematu (np. wys³ania propozycji tematu pracy zaliczeniowej) w w¹tku dotycz¹cym innej sprawy
+  \item \textbf{Kontakt wy³¹cznie z wykorzystaniem adresów domeny UW}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Forma zajêæ}
+  \begin{itemize}
+  \item Zajêcia stacjonarne$^{\star}$ w formie konwersatorium, 15 spotkañ w semestrze zimowym
+  \item Wymagana rejestracja w USOS
+  \item Przyjœcie na zajêcia innej grupy ni¿ jest siê zapisanym mo¿liwe po wczeœniejszym powiadomieniu drog¹ elektroniczn¹ prowadz¹cych i~uzyskaniu ich zgody (w zale¿noœci od liczby wolnych miejsc)
+  \item Nie dopuszczamy do sytuacji, gdy liczba uczestników jest wiêksza ni¿ komputerów :)
+  \end{itemize}
+
+\end{frame}
+
+\section{Zasady zaliczenia}
+
+\begin{frame}{Elementy zaliczenia}
+  \begin{enumerate}
+  \item Obecnoœæ: obowi¹zkowa, dopuszczalne co najwy¿ej 3~nieobecnoœci, powy¿ej NK
+  \item Raport z przeprowadzonego badania: 70\%
+  \item Praca domowe: 30\%
+  \end{enumerate}
+  \begin{alert}{Uwaga!}
+  Osoby, które nie oddadz¹ prac w wymaganych terminach, nie otrzymaj¹ zaliczenia
+  \end{alert}
+\end{frame}
+
+\begin{frame}{Praca domowa}
+  \begin{itemize}
+  \item Praca domowa zostanie zapowiedziana z~ok.~3~tygodniowym terminem oddania
+  \item Rozwi¹zania indywidualne -- Pañstwo decyduj¹, czy chc¹ rozwi¹zaæ
+  \item Brak punktów z prac domowych nie uniemo¿liwia zaliczenia przedmiotu, ale nie mo¿na te¿ uzyskaæ‡ oceny koñcowej wy¿szej ni¿ 4 (db)
+  \item Praca domowa stanowi¹ element Pañstwa aktywnoœci -- nie mo¿na ich poprawiæ w drugim terminie
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Raporty}
+  \begin{itemize}
+  \item Wykonanie badania w grupach. Preferujemy grupy 3 osobowe. Prosimy unikaæ grup sk³adaj¹cych siê wy³¹cznie z osób z II roku studiów II stopnia
+  \item Limit 4 raporty z jednej techniki badawczej
+  \item Mo¿na dobraæ siê w zespó³ z osobami z innej godziny
+  \item W razie problemów w zespole, prosimy nas informowaæ, postaramy siê znaleŸæ rozwi¹zanie
+  \end{itemize}
+\end{frame}
+
+\section{O czym bêd¹… te zajêcia?}
+
+\begin{frame}{Kilka s³ów o analizie wielowymiarowej}
+  \begin{itemize}
+  \item Analiza wielowymiarowa to zbiór metod i technik analizy danych zawieraj¹cych informacje o wielu obiektach opisanych jednoczeœnie za pomoc¹ wielu zmiennych
+  \item Jej celem jest redukcja du¿ego zbioru danych, uproszczenie ich struktury oraz zapewnienie przejrzystej interpretacji wyników
+  \item Analizê wielowymiarow¹ mo¿na równie¿ zastosowaæ do sortowania, grupowania, skupiania obiektów wykazuj¹cych podobne cechy
+  \item Dodatkowo za jej pomoc¹ mo¿na badaæ zale¿noœci pomiêdzy zmiennymi, ich si³ê powi¹zañ oraz wyci¹gaæ wnioski
+  \item Jest to równie¿ warsztat narzêdzi przydatnych podczas analizy zmiennych jakoœciowych
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Omawiane techniki analizy}
+  \begin{itemize}
+  \item Powtórzenie statystyki oraz testy (nie)parametryczne
+  \item Analiza korelacji
+  \item Analiza wariancji i kowariancji (ANOVA)
+  \item Analiza dyskryminacji
+  \item Metody grupowania i segmentacji
+  \item Analiza czynnikowa, inne techniki redukcji wymiaru ($\star$)
+  \item Analiza conjoint
+  \end{itemize}
+\end{frame}
+
+\end{document}
