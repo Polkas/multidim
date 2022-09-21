@@ -11,6 +11,7 @@ $ python -m venv .venv
 $ source .venv/bin/activate
 $ pip install ".[all]"
 $ jupyter notebook
+$ deactivate
 ```
 
 You want to contribute, then fork https://github.com/Polkas/multidim
@@ -22,6 +23,7 @@ $ python -m venv .venv
 $ source .venv/bin/activate
 $ pip install ".[all]"
 $ jupyter notebook
+$ deactivate
 ```
 
 or simply open the github codespaces and go to src/multidim/notebooks
