@@ -6,32 +6,25 @@ Multidimensional Analysis WNE University of Warsaw
 
 ```bash
 $ git clone https://github.com/Polkas/multidim
+$ # (optional) open multidim directory in VScode
+$ # (optional) open (zsh or bash) terminal in VScode
 $ cd multidim
 $ python -m venv .venv
+$ # activate is only a one click in VScode
 $ source .venv/bin/activate
 $ pip install ".[all]"
 $ jupyter notebook
-$ deactivate
-```
-
-You want to contribute, then fork https://github.com/Polkas/multidim
-
-```bash
-$ git clone https://github.com/YOURUSER/multidim
-$ cd multidim
-$ python -m venv .venv
-$ source .venv/bin/activate
-$ pip install ".[all]"
-$ jupyter notebook
+$ # when ready to end Ctrl-C
 $ deactivate
 ```
 
 or simply open the github codespaces and go to src/multidim/notebooks
 
-## Usage
+When you want to contribute, then fork https://github.com/Polkas/multidim
 
-```
-
+```bash
+$ git clone https://github.com/YOURUSER/multidim
+...
 ```
 
 ## Contributing
