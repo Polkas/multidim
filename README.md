@@ -8,6 +8,11 @@ Multidimensional Analysis WNE University of Warsaw
 $ git clone https://github.com/Polkas/multidim
 $ # (optional) open multidim directory in VScode
 $ # (optional) open (zsh or bash) terminal in VScode
+```
+
+optional part start - virtual env
+
+```bash
 $ cd multidim
 $ python -m venv .venv
 $ # useful for Windows https://docs.python.org/3/library/venv.html
@@ -16,7 +21,14 @@ $ # Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 $ # activate is only a one click in VScode
 $ # on Windows sth like .venv\Scripts\activate
 $ source .venv/bin/activate
+```
+
+optional part end - virtual env
+
+```bash
 $ pip install ".[all]"
+$ now open any notebook from src/multidim/notebooks in VScode
+$ # or use 
 $ jupyter notebook
 $ # when ready to end Ctrl-C
 $ deactivate
@@ -31,7 +43,7 @@ $ git clone https://github.com/YOURUSER/multidim
 ...
 ```
 
-Please, `git pull` regulary [`pip install ".[all]"` might be needed too].
+Please, `git pull` regulary and `pip install ".[all]"` might be needed too].
 
 ## Contributing
 
