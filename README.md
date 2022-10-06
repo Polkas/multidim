@@ -11,7 +11,8 @@ $ # (optional) open (zsh or bash) terminal in VScode
 $ cd multidim
 $ python -m venv .venv
 $ # useful for Windows https://docs.python.org/3/library/venv.html
-$ # PowerShell command needed
+$ # PowerShell command needed - 
+$ # Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 $ # activate is only a one click in VScode
 $ # on Windows sth like .venv\Scripts\activate
 $ source .venv/bin/activate
