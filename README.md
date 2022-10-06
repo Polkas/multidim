@@ -10,6 +10,7 @@ $ # (optional) open multidim directory in VScode
 $ # (optional) open (zsh or bash) terminal in VScode
 $ cd multidim
 $ python -m venv .venv
+$ # useful for Windows https://docs.python.org/3/library/venv.html
 $ # activate is only a one click in VScode
 $ source .venv/bin/activate
 $ pip install ".[all]"
