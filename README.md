@@ -22,7 +22,7 @@ $ # Windows
 $ # useful for Windows https://docs.python.org/3/library/venv.html
 $ # PowerShell command POSSIBLY needed - 
 $ # Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-$ # .venv\Scripts\activate
+$ .venv\Scripts\activate
 ```
 
 optional part end - virtual env
