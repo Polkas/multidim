@@ -21,7 +21,7 @@ def resolve_stata(version: int = 17, stype: str = "se") -> Tuple[str]:
     elif platform == "darwin":
         stata_path = "/Applications/Stata"
     elif platform == "win32":
-        stata_path = f"C:\Program Files\Stata{version}"
+        stata_path = f"C:\programy\Stata{version}"
 
     stata_setup = namedtuple("stata_setup", ["path", "type"])
     return stata_setup(stata_path, stype)
