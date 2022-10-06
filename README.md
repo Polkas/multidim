@@ -15,12 +15,14 @@ optional part start - virtual env
 ```bash
 $ cd multidim
 $ python -m venv .venv
-$ # useful for Windows https://docs.python.org/3/library/venv.html
-$ # PowerShell command needed - 
-$ # Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 $ # activate is only a one click in VScode
-$ # on Windows sth like .venv\Scripts\activate
+$ # on Mac/Linux
 $ source .venv/bin/activate
+$ # Windows
+$ # useful for Windows https://docs.python.org/3/library/venv.html
+$ # PowerShell command POSSIBLY needed - 
+$ # Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+$ # .venv\Scripts\activate
 ```
 
 optional part end - virtual env
