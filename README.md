@@ -13,6 +13,7 @@ $ python -m venv .venv
 $ # useful for Windows https://docs.python.org/3/library/venv.html
 $ # PowerShell command needed
 $ # activate is only a one click in VScode
+$ # on Windows sth like .venv\Scripts\activate
 $ source .venv/bin/activate
 $ pip install ".[all]"
 $ jupyter notebook
