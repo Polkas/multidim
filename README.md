@@ -29,7 +29,7 @@ optional part end - virtual env
 
 ```bash
 $ pip install ".[all]"
-$ now open any notebook from src/multidim/notebooks in VScode
+$ # now open any notebook from src/multidim/notebooks in VScode
 $ # or use 
 $ jupyter notebook
 $ # when ready to end Ctrl-C
