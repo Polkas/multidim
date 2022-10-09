@@ -1,0 +1,31 @@
+name: ci
+
+on: [push, pull_request]
+
+jobs:
+  ci:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python: ["3.10"]
+    # Set up operating system
+    runs-on: ${{ matrix.os }}
+
+    # Define job steps
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Check-out repository
+        uses: actions/checkout@v2
+
+      - name: Install package
+        run: pip install ".[all]"
+
+      - name: Test with pytest
+        run: python -m pytest tests --doctest-modules --cov=multidim --cov-report=xml
+
+      - name: Build documentation
+        run: make html --directory docs/
