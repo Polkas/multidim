@@ -1,5 +1,9 @@
 # multidim
 
+<a href="https://github.com/polkas/multidim/actions">
+<img src="https://github.com/polkas/multidim/workflows/ci/badge.svg" alt="Build Status">
+</a>
+
 Multidimensional Analysis WNE University of Warsaw
 
 ## Installation
