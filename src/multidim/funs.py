@@ -1,16 +1,22 @@
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
-from typing import List, Dict, Union, Iterable, Sequence
+from typing import List, Dict, Union, Sequence
+
+SequenceLike = Union[Sequence, np.ndarray, pd.Series]
 
 
-def f_test(x: Iterable, y: Iterable, alt: str = "two_sided") -> Dict[str, float]:
+def f_test(x: SequenceLike, y: SequenceLike) -> Dict[str, float]:
     """
     Calculates the F-test.
-    :param x: Iterable The first group of data
-    :param y: Iterable The second group of data
-    :param alt: The alternative hypothesis, one of "two_sided" (default), "greater" or "less"
+    :param x: SequenceLike The first group of data
+    :param y: SequenceLike The second group of data
     :return: a dict with the F statistic value and the p-value.
+
+    >>> from multidim.funs import f_test
+    >>> f_test([1, 2, 3], [2, 4, 6])
+    {'statistic': 0.25, 'pval-greater': 0.8, 'pval-less': 0.2, 'pval-not equal': 1.6}
+    >>>
     """
     x = np.array(x)
     y = np.array(y)
@@ -28,12 +34,19 @@ def f_test(x: Iterable, y: Iterable, alt: str = "two_sided") -> Dict[str, float]
 def corr_mat(
     X1: Union[pd.DataFrame, np.ndarray], X2: Union[pd.DataFrame, np.ndarray]
 ) -> np.ndarray:
-    """Correlation matrix between two different matrices.
+    """Correlation matrix between two different data matrices.
+    n-th variable in the first matrix with the n-th variable in the second matrix.
     Arguments:
         X1 -- matrix_like first matrix
         X2 -- matrix_like second matrix
     Returns:
         Correlation matrix, a pandas.DataFrame.
+    >>> from multidim.funs import corr_mat
+    >>> import numpy as np
+    >>> corr_mat(np.array([[1, 2], [2, 3], [4, 2]]), np.array([[2, 5], [3, 9], [5, 7]]))
+              0         1
+    0  1.000000  0.327327
+    1 -0.188982  0.866025
     """
     assert (
         X1.shape[0] == X2.shape[0]
@@ -42,8 +55,8 @@ def corr_mat(
     col_nams = X2.columns if hasattr(X2, "columns") else list(range(X2.shape[1]))
     index_nams = X1.columns if hasattr(X1, "columns") else list(range(X1.shape[1]))
 
-    X1 = np.asmatrix(X1)
-    X2 = np.asmatrix(X2)
+    X1 = np.array(X1)
+    X2 = np.array(X2)
     numerator = np.matmul(X1.T, X2) / X2.shape[0] - np.outer(
         np.mean(X1, axis=0), np.mean(X2, axis=0)
     )
@@ -57,7 +70,7 @@ def corr_mat(
 def REDUNT(
     matX: Union[pd.DataFrame, np.ndarray],
     matY: Union[pd.DataFrame, np.ndarray],
-    can_corrs: Sequence,
+    can_corrs: SequenceLike,
     corr_Y_xscores: Union[pd.DataFrame, np.ndarray],
     corr_X_yscores: Union[pd.DataFrame, np.ndarray],
 ) -> List[pd.DataFrame]:
@@ -65,7 +78,7 @@ def REDUNT(
     Arguments:
         matX -- matrix_like egzo variables
         matY -- matrix_like engo variables
-        can_corrs -- Sequence 1D canonical correlations
+        can_corrs -- SequenceLike 1D canonical correlations
         corr_Y_xscores -- matrix_like correlation between endo variables and xscores
         corr_X_yscores -- matrix_like correlation between egzo variables and yscores
     Returns:
@@ -84,11 +97,11 @@ def REDUNT(
         len(can_corrs) >= corr_X_yscores.shape[1]
     ), "can_corrs should have number of elements at least as number of columns in corr_X_xscores."
 
-    matX = np.asmatrix(matX)
-    matY = np.asmatrix(matY)
+    matX = np.array(matX)
+    matY = np.array(matY)
     can_corrs = np.array(can_corrs)
-    corr_Y_xscores = np.asmatrix(corr_Y_xscores)
-    corr_X_yscores = np.asmatrix(corr_X_yscores)
+    corr_Y_xscores = np.array(corr_Y_xscores)
+    corr_X_yscores = np.array(corr_X_yscores)
 
     eigenmatY = can_corrs
     vector1 = np.power(eigenmatY, 2)

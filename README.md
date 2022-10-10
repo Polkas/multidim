@@ -1,8 +1,13 @@
 # multidim
 
+<span>
 <a href="https://github.com/polkas/multidim/actions">
 <img src="https://github.com/polkas/multidim/workflows/ci/badge.svg" alt="Build Status">
 </a>
+<a href="https://codecov.io/gh/Polkas/multidim">
+<img src="https://codecov.io/gh/Polkas/multidim/branch/main/graph/badge.svg" alt="codecov">
+</a>
+</span>
 
 Multidimensional Analysis WNE University of Warsaw
 

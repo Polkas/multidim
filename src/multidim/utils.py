@@ -15,6 +15,9 @@ def resolve_stata(version: int = 17, stype: str = "se") -> Tuple[str]:
 
     Returns:
         NamedTuple[str, str]: predicted STATA path and the validated STATA type
+    >>> from multidim.utils import resolve_stata
+    >>> resolve_stata()
+    stata_setup(path=...
     """
     assert stype in ["se", "be", "mp"], 'stype has to be one of "se", "be", "mp"'
     assert isinstance(version, int), "version has to be an integer"
