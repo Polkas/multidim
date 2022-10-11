@@ -5,10 +5,10 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "multidim"
 authors = [
-  {email = "nasinski.maciej@gmail.com"},
-  {name = "Maciej Nasinski"}
+  {name = "Maciej Nasinski", email = "nasinski.maciej@gmail.com"},
+  {name = "Pawel Strawinski", email = "pstrawinski@wne.uw.edu.pl"}
 ]
-description = "My package description"
+description = "Multidimensional Analysis Lecture"
 readme = "README.md"
 version = "0.1.0.9003"
 requires-python = ">=3.8"
@@ -50,10 +50,10 @@ benchmark = ["snakeviz"]
 all = ["multidim[test,docs,build,benchmark]"]
 
 [project.urls]
-homepage = "https://example.com"
-documentation = "https://readthedocs.org"
-repository = "https://github.com"
-changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+homepage = "https://github.com/Polkas/multidim"
+documentation = "https://multidim.readthedocs.io/en/latest/"
+repository = "https://github.com/Polkas/multidim"
+changelog = "https://raw.githubusercontent.com/Polkas/multidim/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
 where = ["src"]
