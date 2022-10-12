@@ -70,4 +70,4 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## License
 
-`multidim` was created by Maciej Nasinski. It is licensed under the terms of the MIT license.
+`multidim` was created by Maciej Nasinski and Pawel Strawinski. It is licensed under the terms of the Apache 2.0 license.
