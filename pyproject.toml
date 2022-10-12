@@ -10,10 +10,10 @@ authors = [
 ]
 description = "Multidimensional Analysis Lecture"
 readme = "README.md"
-version = "0.1.0.9003"
+version = "0.1.0.9004"
 requires-python = ">=3.8"
 keywords = ["multidimensional", "analysis", "teaching"]
-license = {text = "MIT License"}
+license = {text = "Apache License 2.0 | file LICENSE"}
 classifiers = [
     "Programming Language :: Python :: 3",
 ]
