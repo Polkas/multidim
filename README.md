@@ -56,6 +56,14 @@ $ git clone https://github.com/YOURUSER/multidim
 
 Please, `git pull` regulary and `pip install ".[all]"` might be needed too].
 
+## Setup Videos
+
+[Simple Setup](https://drive.google.com/file/d/1ZMStipXFeXl81CFcJ7k-BXWHsA_K9kZG/view?usp=sharing)
+
+[Advanced Setup](https://drive.google.com/file/d/1jImDrznuluIZ400JRVfpsyBu80xQHMEK/view?usp=sharing)
+
+[Update Repo](https://drive.google.com/file/d/1kMOHSrXUL7fHnefdxOw_t_8vqz5RsRpM/view?usp=sharing)
+
 ## Contributing
 
 Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.

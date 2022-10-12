@@ -63,3 +63,12 @@ def load_seul1988() -> DataFrame:
     sour = _get_file_path("seul1988.dta")
     with as_file(sour) as fil:
         return read_stata(fil)
+
+def load_zadowolenie() -> DataFrame:
+    """load zadowolenie dataset
+    Returns:
+        pandas.DataFrame: tibetan dataset
+    """
+    sour = _get_file_path("zadowolenie.dta")
+    with as_file(sour) as fil:
+        return read_stata(fil)
