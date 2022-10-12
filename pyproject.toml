@@ -10,7 +10,7 @@ authors = [
 ]
 description = "Multidimensional Analysis Lecture"
 readme = "README.md"
-version = "0.1.0.9004"
+version = "0.1.0.9005"
 requires-python = ">=3.8"
 keywords = ["multidimensional", "analysis", "teaching"]
 license = {text = "Apache License 2.0 | file LICENSE"}
@@ -25,6 +25,7 @@ dependencies = [
     "statsmodels",
     "prince",
     "factor-analyzer",
+    "seaborn",
     "stata_setup",
     "PyYAML",
     "jupyter",
