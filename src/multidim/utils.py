@@ -3,10 +3,10 @@ from os import path
 from typing import Tuple
 from collections import namedtuple
 import warnings
-from typing import Optional
+from typing import Optional, Dict, List, NamedTuple
 
 
-def resolve_stata(version: int = 17, stype: str = "se") -> Tuple[str]:
+def resolve_stata(version: int = 17, stype: str = "se") -> NamedTuple:
     """Resolve the STATA version path and validate the type
 
     Args:
@@ -25,7 +25,7 @@ def resolve_stata(version: int = 17, stype: str = "se") -> Tuple[str]:
     stata_path: Optional[str] = None
     stata_path_assume: Optional[str] = None
 
-    stata_paths_assume = {
+    stata_paths_assume: Dict[str, List[str]] = {
         "linux": [f"/usr/local/stata{version}"],
         "linux2": [f"/usr/local/stata{version}"],
         "darwin": ["/Applications/Stata"],

@@ -1,7 +1,7 @@
 import os, shutil, sys
 
 
-def copy():
+def copy() -> None:
     """ """
     try:
         path = sys.argv[1]

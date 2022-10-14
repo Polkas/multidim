@@ -52,11 +52,21 @@ def corr_mat(
         X1.shape[0] == X2.shape[0]
     ), "X1 and X2 should have the same number of observations."
 
-    col_nams = X2.columns if hasattr(X2, "columns") else list(range(X2.shape[1]))
-    index_nams = X1.columns if hasattr(X1, "columns") else list(range(X1.shape[1]))
+    col_nams: List[str] = list()
+    if isinstance(X2, pd.DataFrame):
+        col_nams = X2.columns
+    else:
+        col_nams = [str(e) for e in range(X2.shape[1])]
+
+    index_nams: List[str] = list()
+    if isinstance(X1, pd.DataFrame):
+        index_nams = X1.columns 
+    else:
+        index_nams = [str(e) for e in range(X1.shape[1])]
 
     X1 = np.array(X1)
     X2 = np.array(X2)
+
     numerator = np.matmul(X1.T, X2) / X2.shape[0] - np.outer(
         np.mean(X1, axis=0), np.mean(X2, axis=0)
     )

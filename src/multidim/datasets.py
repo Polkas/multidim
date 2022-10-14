@@ -5,7 +5,7 @@ import multidim.data
 __all__ = ["load_iris", "load_auto", "load_uscities", "load_tibetan", "load_seul1988"]
 
 
-def _get_file_path(file: str):
+def _get_file_path(file: str) -> str:
     """Get a file path"""
     source = files(multidim.data).joinpath(file)
     return source
@@ -63,6 +63,7 @@ def load_seul1988() -> DataFrame:
     sour = _get_file_path("seul1988.dta")
     with as_file(sour) as fil:
         return read_stata(fil)
+
 
 def load_zadowolenie() -> DataFrame:
     """load zadowolenie dataset
