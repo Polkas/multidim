@@ -11,10 +11,15 @@ from pandas import DataFrame
 from multidim.funs import f_test, REDUNT, corr_mat
 import numpy as np
 import pandas as pd
+from multidim import copy
+import os
+from unittest.mock import patch
+import tempfile
+import shutil
 import pytest
 
 
-def test_load_iris():
+def test_load_datasets():
     assert isinstance(load_iris(), DataFrame)
     assert isinstance(load_uscities(), DataFrame)
     assert isinstance(load_tibetan(), DataFrame)
@@ -26,6 +31,17 @@ def test_resolve_stata():
     current_stata = resolve_stata()
     assert isinstance(current_stata, tuple)
     assert len(current_stata) == 2
+
+
+def test_copy():
+    dirpath = tempfile.mkdtemp()
+    with patch("sys.argv", ["copy", dirpath]):
+        copy()
+        assert os.path.isdir(os.path.join(dirpath, "notebooks"))
+        assert os.path.isfile(
+            os.path.join(dirpath, "notebooks", "01_stats_intro.ipynb")
+        )
+    shutil.rmtree(dirpath)
 
 
 def test_funs_f_test():
