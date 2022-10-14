@@ -25,19 +25,30 @@ def resolve_stata(version: int = 17, stype: str = "se") -> Tuple[str]:
     stata_path: Optional[str] = None
     stata_path_assume: Optional[str] = None
 
-    if platform == "linux" or platform == "linux2":
-        stata_path_assume = f"/usr/local/stata{version}"
-    elif platform == "darwin":
-        stata_path_assume = "/Applications/Stata"
-    elif platform == "win32":
-        stata_path_assume = f"C:\Program Files\Stata{version}"
-        if not path.exists(stata_path_assume):
-            stata_path_assume = f"C:\programy\Stata{version}"
+    stata_paths_assume = {
+        "linux": [f"/usr/local/stata{version}"],
+        "linux2": [f"/usr/local/stata{version}"],
+        "darwin": ["/Applications/Stata"],
+        "win32": [
+            f"C:\programy\Stata{version}",
+            f"C:\Program Files\Stata{version}",
+            f"C:\Program Files (x86)\Stata{version}",
+            f"C:\Pliki Programów\Stata{version}",
+            f"C:\Pliki Programów (x86)\Stata{version}",
+        ],
+    }
 
-    if path.exists(stata_path_assume):
-        stata_path = stata_path_assume
-    else:
+    assert platform in stata_paths_assume.keys(), "Platform not supported"
+
+    for sp in stata_paths_assume[platform]:
+        if path.exists(sp):
+            stata_path_assume = sp
+            break
+
+    if stata_path_assume is None:
         warnings.warn("Automatic STATA path resolve FAILED.")
+    else:
+        stata_path = stata_path_assume
 
     stata_setup = namedtuple("stata_setup", ["path", "type"])
     return stata_setup(stata_path, stype)

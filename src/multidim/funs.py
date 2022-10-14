@@ -113,7 +113,7 @@ def REDUNT(
         b = a / vector1[i]
         c = np.sum(np.power(corr_X_yscores[:, i], 2)) / matX.shape[1]
         d = c / vector1[i]
-        mm = pd.DataFrame(np.matrix([[b, a], [d, c]]))
+        mm = pd.DataFrame([[b, a], [d, c]])
         mm.index = names2
         mm.columns = names1
         matim.append(mm)
