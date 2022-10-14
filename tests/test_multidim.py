@@ -34,6 +34,9 @@ def test_resolve_stata():
 
 
 def test_copy():
+    with patch("sys.argv", ["copy", "WRONGPATH"]):
+        with pytest.raises(TypeError):
+            copy()
     dirpath = tempfile.mkdtemp()
     with patch("sys.argv", ["copy", dirpath]):
         copy()
@@ -68,37 +71,9 @@ def test_REDUNDANT():
     from statsmodels.multivariate.cancorr import CanCorr
     from sklearn.cross_decomposition import CCA
 
-    zadowolenie = load_zadowolenie()
-    zadowolenie = zadowolenie.apply(
-        lambda x: x.cat.codes if x.dtypes == "category" else x
-    )
-    # rozbicie zmiennych typu category na zmienne binarne
-    zadowolenie[["plec", "zaleznosc", "stanciv", "zaufanie"]] = zadowolenie[
-        ["plec", "zaleznosc", "stanciv", "zaufanie"]
-    ].astype("int")
-    zadowolenie_cols = pd.get_dummies(
-        zadowolenie,
-        columns=["plec", "zaleznosc", "stanciv", "zaufanie"],
-        drop_first=True,
-    )
-    # standaryzacja bez zmiennych binarnych
-    norm_cols = ["rodzina", "przyjaciele", "sukces", "zdrowie"] + [
-        "wiek2011",
-        "kontakty",
-        "aktywnosc",
-        "edukacja",
-        "dochod",
-        "dep_wyglad",
-        "dep_zapal",
-        "dep_zdrowie",
-        "dep_sen",
-        "dep_meczenie",
-    ]
-    zadowolenie_cols[norm_cols] = (
-        zadowolenie_cols[norm_cols] - zadowolenie_cols[norm_cols].mean()
-    ) / zadowolenie_cols[norm_cols].std(ddof=1)
-    y_cols = ["rodzina", "przyjaciele", "zdrowie", "sukces"]
-    x_cols = [
+    y_vars = ["rodzina", "przyjaciele", "zdrowie", "sukces"]
+    cat_vars = ["plec", "zaleznosc", "stanciv", "zaufanie"]
+    x_vars = [
         "dep_wyglad",
         "dep_zapal",
         "dep_zdrowie",
@@ -117,13 +92,38 @@ def test_REDUNDANT():
         "stanciv_4",
         "dochod",
     ]
+
+    zadowolenie = load_zadowolenie()
+    zadowolenie = zadowolenie.apply(
+        lambda x: x.cat.codes if x.dtypes == "category" else x
+    )
+    zadowolenie[cat_vars] = zadowolenie[cat_vars].astype("int")
+    zadowolenie_cols = pd.get_dummies(
+        zadowolenie,
+        columns=cat_vars,
+        drop_first=True,
+    )
+    norm_cols = y_vars + [
+        "wiek2011",
+        "kontakty",
+        "aktywnosc",
+        "edukacja",
+        "dochod",
+        "dep_wyglad",
+        "dep_zapal",
+        "dep_zdrowie",
+        "dep_sen",
+        "dep_meczenie",
+    ]
+    zadowolenie_cols[norm_cols] = (
+        zadowolenie_cols[norm_cols] - zadowolenie_cols[norm_cols].mean()
+    ) / zadowolenie_cols[norm_cols].std(ddof=1)
+    y_cols = y_vars
+    x_cols = x_vars
     y_mat = zadowolenie_cols[y_cols]
     x_mat = zadowolenie_cols[x_cols]
-    # or sklearn
-    # https://scikit-learn.org/stable/modules/cross_decomposition.html#cross-decomposition
     my_cca = CCA(n_components=2, copy=True, max_iter=100, scale=False)
     my_cca.fit(x_mat, y_mat)
-    # different vars order
     x_scores, y_scores = my_cca.transform(x_mat, y_mat)
     scores_corr_X_yscores = corr_mat(x_mat, y_scores)
     scores_corr_Y_xscores = corr_mat(y_mat, x_scores)
@@ -133,25 +133,15 @@ def test_REDUNDANT():
     )
     assert np.allclose(
         redun[0],
-        pd.DataFrame(
-            {
-                "own variance": {"y": 0.38735564940549644, "x": 0.21472674882208714},
-                "opposite variance": {
-                    "y": 0.17256807822444525,
-                    "x": 0.09566139656019419,
-                },
-            }
-        ),
+        [
+            [0.38735564940549644, 0.17256807822444525],
+            [0.21472674882208714, 0.09566139656019419],
+        ],
     )
     assert np.allclose(
         redun[1],
-        pd.DataFrame(
-            {
-                "own variance": {"y": 0.28365240900750716, "x": 0.0623265715688049},
-                "opposite variance": {
-                    "y": 0.05123710058229869,
-                    "x": 0.01125826086792084,
-                },
-            }
-        ),
+        [
+            [0.28365240900750716, 0.05123710058229869],
+            [0.0623265715688049, 0.01125826086792084],
+        ],
     )
