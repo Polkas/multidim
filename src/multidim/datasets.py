@@ -1,11 +1,12 @@
 from importlib_resources import files, as_file
+from importlib_resources.abc import Traversable
 from pandas import DataFrame, read_stata, read_csv
 import multidim.data
 
 __all__ = ["load_iris", "load_auto", "load_uscities", "load_tibetan", "load_seul1988"]
 
 
-def _get_file_path(file: str) -> str:
+def _get_file_path(file: str) -> Traversable:
     """Get a file path"""
     source = files(multidim.data).joinpath(file)
     return source
