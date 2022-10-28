@@ -39,7 +39,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest", "pytest-cov", "mypy"]
+test = ["pytest", "pytest-cov", "mypy", "nbmake"]
 docs = [
   "Sphinx", 
   "myst-nb",
