@@ -30,6 +30,10 @@ jobs:
       - name: Test with mypy
         run: mypy src
 
+      - name: Test notebooks
+        run: |
+          pytest --nbmake src/multidim/notebooks
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:

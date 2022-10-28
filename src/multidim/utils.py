@@ -4,6 +4,7 @@ from typing import Tuple
 from collections import namedtuple
 import warnings
 from typing import Optional, Dict, List, NamedTuple
+from IPython.core.magic import register_line_cell_magic
 
 
 def resolve_stata(version: int = 17, stype: str = "se") -> NamedTuple:
@@ -52,3 +53,15 @@ def resolve_stata(version: int = 17, stype: str = "se") -> NamedTuple:
 
     stata_setup = namedtuple("stata_setup", ["path", "type"])
     return stata_setup(stata_path, stype)
+
+
+def overwrite_stata_magic():
+    """Overwrite the STATA magic to use the dummy one"""
+
+    @register_line_cell_magic
+    def stata(line, cell=None):
+        msg = "Stata was not loaded properly. Please check the STATA path and type."
+        if cell is None:
+            return msg
+        else:
+            return msg
