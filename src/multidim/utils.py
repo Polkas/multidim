@@ -61,9 +61,4 @@ def overwrite_stata_magic() -> None:
     @register_line_cell_magic
     def stata(line: str, cell: Optional[str] = None) -> str:
         msg = "Stata was not loaded properly. Please check the STATA path and type."
-        if cell is None:
-            return msg
-        else:
-            return msg
-
-    return None
+        return msg
