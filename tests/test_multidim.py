@@ -53,7 +53,7 @@ def test_copy():
         copy()
         assert os.path.isdir(os.path.join(dirpath, "notebooks"))
         assert os.path.isfile(
-            os.path.join(dirpath, "notebooks", "01_stats_intro.ipynb")
+            os.path.join(dirpath, "notebooks", "02_stats_intro.ipynb")
         )
     shutil.rmtree(dirpath)
 
