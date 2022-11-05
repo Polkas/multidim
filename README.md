@@ -11,6 +11,16 @@
 
 Multidimensional Analysis WNE University of Warsaw
 
+## Description
+
+Multidimensional Analysis in Python and pySTATA.  
+The fundamentals of statistics followed by supervised and unsupervised methods.  
+The core focus is to learn how to build a reproducible and high quality scientific reasearch from scratch.
+
+[Please check out lectures slides.](https://multidim.readthedocs.io/en/latest/lecture.html)
+
+[Jupyter Notebooks for each lecture.](https://github.com/Polkas/multidim/tree/main/src/multidim/notebooks)
+
 ## Installation
 
 ```bash
