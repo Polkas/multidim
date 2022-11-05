@@ -15,7 +15,7 @@ Multidimensional Analysis WNE University of Warsaw
 
 Multidimensional Analysis in Python and pySTATA.  
 The fundamentals of statistics followed by supervised and unsupervised methods.  
-The core focus is to learn how to build a reproducible and high quality scientific reasearch from scratch.
+The main focus is to learn how to build a reproducible and high quality scientific reasearch from scratch.
 
 [Please check out lectures slides.](https://multidim.readthedocs.io/en/latest/lecture.html)
 
