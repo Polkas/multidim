@@ -78,8 +78,12 @@ def load_stata(STATA_PATH: str, STATA_TYPE: str, overwrite_magic: bool = True) -
     >>> from multidim.utils import load_stata
     ...
     """
-    assert isinstance(STATA_PATH, str), "STATA_PATH has to be str"
-    assert isinstance(STATA_TYPE, str), "STATA_TYPE has to be str"
+    assert (STATA_PATH is None) or isinstance(
+        STATA_PATH, str
+    ), "STATA_PATH has to be str"
+    assert (STATA_TYPE is None) or isinstance(
+        STATA_TYPE, str
+    ), "STATA_TYPE has to be str"
 
     try:
         import stata_setup

@@ -6,7 +6,7 @@ from multidim.datasets import (
     load_seul1988,
     load_zadowolenie,
 )
-from multidim.utils import resolve_stata, overwrite_stata_magic
+from multidim.utils import resolve_stata, overwrite_stata_magic, load_stata
 from pandas import DataFrame
 from multidim.funs import f_test, REDUNT, corr_mat
 import numpy as np
@@ -42,6 +42,10 @@ def test_overwrite_stata_magic():
     overwrite_stata_magic()
     assert ip.run_line_magic("stata", "display Hello") == msg
     assert ip.run_cell_magic("stata", "", "display Hello") == msg
+
+
+def test_load_stata():
+    load_stata(None, None)
 
 
 def test_copy():
