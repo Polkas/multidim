@@ -11,8 +11,8 @@ def resolve_stata(version: int = 17, stype: str = "se") -> NamedTuple:
     """Resolve the STATA version path and validate the type
 
     Args:
-        version (int, optional): STATA version. Defaults to 17.
-        stype (str, optional): STATA type has to be one of "se", "be", "mp". Defaults to "se".
+        version (int): STATA version. Defaults to 17.
+        stype (str): STATA type has to be one of "se", "be", "mp". Defaults to "se".
 
     Returns:
         NamedTuple[str, str]: predicted STATA path and the validated STATA type
@@ -62,3 +62,34 @@ def overwrite_stata_magic() -> None:
     def stata(line: str, cell: Optional[str] = None) -> str:
         msg = "Stata was not loaded properly. Please check the STATA path and type."
         return msg
+
+
+def load_stata(STATA_PATH: str, STATA_TYPE: str, overwrite_magic: bool = True) -> None:
+    """load pySTATA
+
+    Args:
+        STATA_PATH (str): path to STATA, could be get with the multidim.utils.resolve_stata funtion.
+        STATA_TYPE (str): STATA type has to be one of "se", "be", "mp".
+        overwrite_magic (bool): if to overwrite the stata magic with a dummy one when load failed.
+
+    Returns:
+        None
+    >>> from multidim.utils import resolve_stata
+    >>> from multidim.utils import load_stata
+    ...
+    """
+    assert isinstance(STATA_PATH, str), "STATA_PATH has to be str"
+    assert isinstance(STATA_TYPE, str), "STATA_TYPE has to be str"
+
+    try:
+        import stata_setup
+
+        stata_setup.config(STATA_PATH, STATA_TYPE)
+    except:
+        print(
+            "STATA was not loaded properly.",
+            "Please check the STATA path and type.",
+            "Moreover STATA LICENSE should be valid.",
+        )
+        if overwrite_magic:
+            overwrite_stata_magic()

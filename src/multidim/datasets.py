@@ -3,7 +3,14 @@ from importlib_resources.abc import Traversable
 from pandas import DataFrame, read_stata, read_csv
 import multidim.data
 
-__all__ = ["load_iris", "load_auto", "load_uscities", "load_tibetan", "load_seul1988"]
+__all__ = [
+    "load_iris",
+    "load_auto",
+    "load_uscities",
+    "load_tibetan",
+    "load_seul1988",
+    "load_euro",
+]
 
 
 def _get_file_path(file: str) -> Traversable:
@@ -72,5 +79,15 @@ def load_zadowolenie() -> DataFrame:
         pandas.DataFrame: tibetan dataset
     """
     sour = _get_file_path("zadowolenie.dta")
+    with as_file(sour) as fil:
+        return read_stata(fil)
+
+
+def load_euro() -> DataFrame:
+    """load zadowolenie dataset
+    Returns:
+        pandas.DataFrame: euro dataset
+    """
+    sour = _get_file_path("euro.dta")
     with as_file(sour) as fil:
         return read_stata(fil)
