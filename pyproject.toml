@@ -18,6 +18,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
+    "stata_setup",
     "numpy",
     "pandas",
     "scipy",
@@ -25,17 +26,13 @@ dependencies = [
     "statsmodels",
     "prince",
     "factor-analyzer",
+    "matplotlib",
     "seaborn",
-    "stata_setup",
-    "PyYAML",
     "jupyter",
     "notebook",
-    "pywin32; platform_system=='Windows'",
-    "flake8", 
-    "black",
-    "ipdb",
     "importlib-resources",
     "importlib-metadata",
+    "pywin32; platform_system=='Windows'",
 ]
 
 [project.optional-dependencies]
@@ -48,7 +45,9 @@ docs = [
 ]
 build = ["build"]
 benchmark = ["snakeviz"]
-all = ["multidim[test,docs,build,benchmark]"]
+styler = ["flake8", "black"]
+debug = ["ipdb"]
+all = ["multidim[test,docs,build,benchmark,styler,debug]"]
 
 [project.urls]
 homepage = "https://github.com/Polkas/multidim"

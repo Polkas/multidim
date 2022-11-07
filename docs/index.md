@@ -3,7 +3,7 @@
 
 ```{toctree}
 :maxdepth: 1
-:caption: Notebooks
+:caption: Lectures
 
 lecture.md
 ```
