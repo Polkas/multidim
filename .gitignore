@@ -478,3 +478,5 @@ Term
 
 # Additional
 *.egg-info
+
+modern_unsuper.ipynb
