@@ -7,3 +7,4 @@
 <p><a href="_static/aw_04.pdf">Lecture 4</a></p>
 <p><a href="_static/aw_05_raporty.pdf">Lecture 5 - Raport</a></p>
 <p><a href="_static/aw_faq.pdf">Lecture 5 - FAQ</a></p>
+<p><a href="_static/aw_06.pdf">Lecture 6</a></p>
