@@ -10,6 +10,7 @@ __all__ = [
     "load_tibetan",
     "load_seul1988",
     "load_euro",
+    "load_nauczyciele",
 ]
 
 
@@ -89,5 +90,15 @@ def load_euro() -> DataFrame:
         pandas.DataFrame: euro dataset
     """
     sour = _get_file_path("euro.dta")
+    with as_file(sour) as fil:
+        return read_stata(fil)
+
+
+def load_nauczyciele() -> DataFrame:
+    """load zadowolenie dataset
+    Returns:
+        pandas.DataFrame: tibetan dataset
+    """
+    sour = _get_file_path("nauczyciele.dta")
     with as_file(sour) as fil:
         return read_stata(fil)

@@ -10,7 +10,7 @@ authors = [
 ]
 description = "Multidimensional Analysis Lecture"
 readme = "README.md"
-version = "0.1.0.9009"
+version = "0.1.0.9012"
 requires-python = ">=3.8"
 keywords = ["multidimensional", "analysis", "teaching"]
 license = {text = "Apache License 2.0 | file LICENSE"}
@@ -28,6 +28,7 @@ dependencies = [
     "factor-analyzer",
     "matplotlib",
     "seaborn",
+    "yellowbrick",
     "jupyter",
     "notebook",
     "importlib-resources",

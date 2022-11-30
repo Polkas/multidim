@@ -5,6 +5,8 @@ from multidim.datasets import (
     load_auto,
     load_seul1988,
     load_zadowolenie,
+    load_nauczyciele,
+    load_euro,
 )
 from multidim.utils import resolve_stata, overwrite_stata_magic, load_stata
 from pandas import DataFrame
@@ -25,6 +27,9 @@ def test_load_datasets():
     assert isinstance(load_tibetan(), DataFrame)
     assert isinstance(load_auto(), DataFrame)
     assert isinstance(load_seul1988(), DataFrame)
+    assert isinstance(load_euro(), DataFrame)
+    assert isinstance(load_zadowolenie(), DataFrame)
+    assert isinstance(load_nauczyciele(), DataFrame)
 
 
 def test_resolve_stata():

@@ -10,6 +10,13 @@ lecture.md
 
 ```{toctree}
 :maxdepth: 1
+:caption: Assignment
+
+assignment.md
+```
+
+```{toctree}
+:maxdepth: 1
 :hidden:
 :caption: Main
 
