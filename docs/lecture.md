@@ -12,3 +12,4 @@
 <p><a href="_static/aw_07b.pdf">Lecture 7b</a></p>
 <p><a href="_static/aw_08.pdf">Lecture 8</a></p>
 <p><a href="_static/aw_09.pdf">Lecture 9</a></p>
+<p><a href="_static/aw_10.pdf">Lecture 10</a></p>

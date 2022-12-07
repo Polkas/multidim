@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
-from typing import List, Dict, Union, Sequence
+from typing import List, Dict, Union, Sequence, Any, Optional
+from scipy.cluster.hierarchy import dendrogram
 
 SequenceLike = Union[Sequence, np.ndarray, pd.Series]
 
@@ -60,7 +61,7 @@ def corr_mat(
 
     index_nams: List[str] = list()
     if isinstance(X1, pd.DataFrame):
-        index_nams = X1.columns 
+        index_nams = X1.columns
     else:
         index_nams = [str(e) for e in range(X1.shape[1])]
 
@@ -128,3 +129,34 @@ def REDUNT(
         mm.columns = names1
         matim.append(mm)
     return matim
+
+
+def plot_dendrogram(model: Any, **kwargs: Optional[Any]) -> None:
+    """Dendogram Plot
+    Wrapper around scipy.cluster.hierarchy.dendrogram
+    Arguments:
+        model -- result of fit method for sklearn.cluster.AgglomerativeClustering
+        **kwargs -- additional arguments for scipy.cluster.hierarchy.dendrogram
+    Returns:
+        None and draw a plot
+    Note:
+        Source: https://scikit-learn.org/stable/auto_examples/cluster/plot_agglomerative_dendrogram.html#sphx-glr-auto-examples-cluster-plot-agglomerative-dendrogram-py
+    """
+    # create the counts of samples under each node
+    counts = np.zeros(model.children_.shape[0])
+    n_samples = len(model.labels_)
+    for i, merge in enumerate(model.children_):
+        current_count = 0
+        for child_idx in merge:
+            if child_idx < n_samples:
+                current_count += 1  # leaf node
+            else:
+                current_count += counts[child_idx - n_samples]
+        counts[i] = current_count
+
+    linkage_matrix = np.column_stack(
+        [model.children_, model.distances_, counts]
+    ).astype(float)
+
+    # Plot the corresponding dendrogram
+    dendrogram(linkage_matrix, **kwargs)
