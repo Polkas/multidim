@@ -63,6 +63,11 @@ def overwrite_stata_magic() -> None:
         msg = "Stata was not loaded properly. Please check the STATA path and type."
         return msg
 
+    @register_line_cell_magic
+    def mata(line: str, cell: Optional[str] = None) -> str:
+        msg = "Stata was not loaded properly. Please check the STATA path and type."
+        return msg
+
 
 def load_stata(STATA_PATH: str, STATA_TYPE: str, overwrite_magic: bool = True) -> None:
     """load pySTATA

@@ -1,5 +1,6 @@
 from multidim.datasets import (
     load_iris,
+    load_indeks_spol,
     load_uscities,
     load_tibetan,
     load_auto,
@@ -7,10 +8,11 @@ from multidim.datasets import (
     load_zadowolenie,
     load_nauczyciele,
     load_euro,
+    load_depresja,
 )
 from multidim.utils import resolve_stata, overwrite_stata_magic, load_stata
 from pandas import DataFrame
-from multidim.funs import f_test, REDUNT, corr_mat
+from multidim.funs import f_test, REDUNT, corr_mat, plot_dendrogram
 import numpy as np
 import pandas as pd
 from multidim import copy
@@ -30,6 +32,8 @@ def test_load_datasets():
     assert isinstance(load_euro(), DataFrame)
     assert isinstance(load_zadowolenie(), DataFrame)
     assert isinstance(load_nauczyciele(), DataFrame)
+    assert isinstance(load_depresja(), DataFrame)
+    assert isinstance(load_indeks_spol(), np.ndarray)
 
 
 def test_resolve_stata():
@@ -165,3 +169,15 @@ def test_REDUNDANT():
             [0.0623265715688049, 0.01125826086792084],
         ],
     )
+
+
+def test_plot_dendrogram():
+    from sklearn.cluster import AgglomerativeClustering
+    from multidim.datasets import load_tibetan
+
+    tibetan = load_tibetan()
+    model_base = AgglomerativeClustering(
+        distance_threshold=0, n_clusters=None, linkage="single"
+    )
+    model = model_base.fit(tibetan[["length", "breadth", "height", "upper", "face"]])
+    plot_dendrogram(model)

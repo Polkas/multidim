@@ -5,12 +5,14 @@ import multidim.data
 
 __all__ = [
     "load_iris",
+    "load_indeks_spol",
     "load_auto",
     "load_uscities",
     "load_tibetan",
     "load_seul1988",
     "load_euro",
     "load_nauczyciele",
+    "load_depresja",
 ]
 
 
@@ -28,6 +30,16 @@ def load_iris() -> DataFrame:
     sour = _get_file_path("iris.csv")
     with as_file(sour) as fil:
         return read_csv(fil)
+
+
+def load_indeks_spol() -> DataFrame:
+    """load iris dataset
+    Returns:
+        pandas.DataFrame: iris dataset
+    """
+    sour = _get_file_path("indeks_spol.csv")
+    with as_file(sour) as fil:
+        return read_csv(fil, header=None).values
 
 
 def load_uscities() -> DataFrame:
@@ -100,5 +112,15 @@ def load_nauczyciele() -> DataFrame:
         pandas.DataFrame: tibetan dataset
     """
     sour = _get_file_path("nauczyciele.dta")
+    with as_file(sour) as fil:
+        return read_stata(fil)
+
+
+def load_depresja() -> DataFrame:
+    """load depresja dataset
+    Returns:
+        pandas.DataFrame: depresja dataset
+    """
+    sour = _get_file_path("depresja.dta")
     with as_file(sour) as fil:
         return read_stata(fil)
