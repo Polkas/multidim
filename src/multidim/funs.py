@@ -3,6 +3,7 @@ import pandas as pd
 import scipy.stats as stats
 from typing import List, Dict, Union, Sequence, Any, Optional
 from scipy.cluster.hierarchy import dendrogram
+from scipy.stats import multivariate_normal
 
 SequenceLike = Union[Sequence, np.ndarray, pd.Series]
 
@@ -10,9 +11,11 @@ SequenceLike = Union[Sequence, np.ndarray, pd.Series]
 def f_test(x: SequenceLike, y: SequenceLike) -> Dict[str, float]:
     """
     Calculates the F-test.
-    :param x: SequenceLike The first group of data
-    :param y: SequenceLike The second group of data
-    :return: a dict with the F statistic value and the p-value.
+    Arguments:
+        x -- SequenceLike The first group of data
+        y -- SequenceLike The second group of data
+    Returns:
+        dict with the F statistic value and the p-value
 
     >>> from multidim.funs import f_test
     >>> f_test([1, 2, 3], [2, 4, 6])

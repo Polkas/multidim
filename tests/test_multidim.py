@@ -12,9 +12,12 @@ from multidim.datasets import (
 )
 from multidim.utils import resolve_stata, overwrite_stata_magic, load_stata
 from pandas import DataFrame
-from multidim.funs import f_test, REDUNT, corr_mat, plot_dendrogram
+from multidim.funs import f_test, corr_mat, plot_dendrogram
+from multidim.redunt import Redunt
+from multidim.gmm import GMM
 import numpy as np
 import pandas as pd
+from sklearn.datasets import make_blobs
 from multidim import copy
 import os
 from unittest.mock import patch
@@ -90,7 +93,7 @@ def test_corr_mat():
     )
 
 
-def test_REDUNDANT():
+def test_Redunt():
 
     from statsmodels.multivariate.cancorr import CanCorr
     from sklearn.cross_decomposition import CCA
@@ -152,7 +155,7 @@ def test_REDUNDANT():
     scores_corr_X_yscores = corr_mat(x_mat, y_scores)
     scores_corr_Y_xscores = corr_mat(y_mat, x_scores)
     res = CanCorr(y_mat, x_mat)
-    redun = REDUNT(
+    redun = Redunt(
         x_mat, y_mat, res.cancorr, scores_corr_Y_xscores, scores_corr_X_yscores
     )
     assert np.allclose(
