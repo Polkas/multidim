@@ -14,7 +14,6 @@ from multidim.utils import resolve_stata, overwrite_stata_magic, load_stata
 from pandas import DataFrame
 from multidim.funs import f_test, corr_mat, plot_dendrogram
 from multidim.redunt import Redunt
-from multidim.gmm import GMM
 import numpy as np
 import pandas as pd
 from sklearn.datasets import make_blobs
