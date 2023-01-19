@@ -17,6 +17,13 @@ assignment.md
 
 ```{toctree}
 :maxdepth: 1
+:caption: Report
+
+report.md
+```
+
+```{toctree}
+:maxdepth: 1
 :hidden:
 :caption: Main
 
