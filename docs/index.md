@@ -24,6 +24,13 @@ report.md
 
 ```{toctree}
 :maxdepth: 1
+:caption: Results
+
+finals.md
+```
+
+```{toctree}
+:maxdepth: 1
 :hidden:
 :caption: Main
 
