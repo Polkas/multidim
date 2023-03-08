@@ -2,6 +2,6 @@
 
 <!--next-version-placeholder-->
 
-## v0.1.0.9003
+## v0.1.0
 
 - First release of `multidim`!

@@ -479,6 +479,5 @@ Term
 # Additional
 *.egg-info
 
-modern_unsuper.ipynb
 Assignment_AW_final.qmd
 /.luarc.json
