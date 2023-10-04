@@ -68,8 +68,8 @@ def corr_mat(
     else:
         index_nams = [str(e) for e in range(X1.shape[1])]
 
-    X1 = np.array(X1)
-    X2 = np.array(X2)
+    X1 = np.array(X1, dtype=np.float64)
+    X2 = np.array(X2, dtype=np.float64)
 
     numerator = np.matmul(X1.T, X2) / X2.shape[0] - np.outer(
         np.mean(X1, axis=0), np.mean(X2, axis=0)
