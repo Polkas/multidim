@@ -47,6 +47,7 @@ $ .venv\Scripts\activate
 optional part end - virtual env
 
 ```bash
+$ pip install -r requirements.txt
 $ pip install ".[all]"
 $ # now open any notebook from src/multidim/notebooks in VScode
 $ # or use 
@@ -64,7 +65,7 @@ $ git clone https://github.com/YOURUSER/multidim
 ...
 ```
 
-Please, `git pull` regulary and `pip install ".[all]"` might be needed too].
+Please, `git pull` regulary and `pip install ".[all]"` might be needed too.
 
 ## Setup Videos
 

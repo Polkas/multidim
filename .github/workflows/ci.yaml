@@ -21,8 +21,11 @@ jobs:
       - name: Check-out repository
         uses: actions/checkout@v2
 
-      - name: Install package
-        run: pip install ".[all]"
+      - name: Install packages
+        run: pip install -r requirements.txt
+
+      - name: Install multidim package
+        run: pip install "."
 
       - name: Test with pytest
         run: python -m pytest tests --doctest-modules --cov=multidim --cov-report=xml
