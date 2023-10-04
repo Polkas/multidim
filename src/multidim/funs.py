@@ -104,7 +104,7 @@ def plot_dendrogram(model: Any, **kwargs: Optional[Any]) -> None:
                 current_count += counts[child_idx - n_samples]
         counts[i] = current_count
 
-    linkage_matrix = np.column_stack(
+    linkage_matrix: np.ndarray = np.column_stack(
         [model.children_, model.distances_, counts]
     ).astype(float)
 
