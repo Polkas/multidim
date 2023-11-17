@@ -9,6 +9,7 @@ from multidim.datasets import (
     load_nauczyciele,
     load_euro,
     load_depresja,
+    load_boston
 )
 from pandas import DataFrame
 from numpy import ndarray
@@ -25,3 +26,4 @@ def test_load_datasets():
     assert isinstance(load_nauczyciele(), DataFrame)
     assert isinstance(load_depresja(), DataFrame)
     assert isinstance(load_indeks_spol(), ndarray)
+    assert isinstance(load_boston(), DataFrame)

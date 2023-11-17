@@ -14,6 +14,7 @@ __all__ = [
     "load_nauczyciele",
     "load_depresja",
     "load_cerealnut",
+    "load_boston",
 ]
 
 
@@ -133,5 +134,14 @@ def load_cerealnut() -> DataFrame:
         pandas.DataFrame: depresja dataset
     """
     sour = _get_file_path("cerealnut.dta")
+    with as_file(sour) as fil:
+        return read_stata(fil)
+    
+def load_boston() -> DataFrame:
+    """load boston dataset
+    Returns:
+        pandas.DataFrame: depresja dataset
+    """
+    sour = _get_file_path("boston.dta")
     with as_file(sour) as fil:
         return read_stata(fil)
