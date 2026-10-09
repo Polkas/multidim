@@ -16,19 +16,25 @@ keywords = ["multidimensional", "analysis", "teaching"]
 license = {text = "Apache License 2.0 | file LICENSE"}
 classifiers = [
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
     "stata_setup",
     "numpy",
     "pandas",
     "scipy",
-    "scikit-learn",
+    "scikit-learn<1.8",
     "statsmodels",
     "prince",
     "factor-analyzer",
     "matplotlib",
     "seaborn",
     "yellowbrick",
+    "setuptools; python_version >= '3.12'",
     "jupyter",
     "notebook",
     "importlib-resources",
