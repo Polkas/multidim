@@ -7,14 +7,14 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python: ["3.12"]
+        python: ["3.12", "3.13", "3.14"]
     # Set up operating system
     runs-on: ${{ matrix.os }}
 
     # Define job steps
     steps:
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
 

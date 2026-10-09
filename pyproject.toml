@@ -28,7 +28,6 @@ dependencies = [
     "factor-analyzer",
     "matplotlib",
     "seaborn",
-    "yellowbrick",
     "jupyter",
     "notebook",
     "importlib-resources",

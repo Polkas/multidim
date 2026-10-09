@@ -2,8 +2,9 @@ from sys import platform
 from os import path
 from typing import Tuple
 from collections import namedtuple
+import inspect
 import warnings
-from typing import Optional, Dict, List, NamedTuple, Callable
+from typing import Any, Optional, Dict, List, NamedTuple, Callable
 from IPython.core.magic import register_line_cell_magic
 
 
@@ -53,6 +54,30 @@ def resolve_stata(version: int = 17, stype: str = "se") -> NamedTuple:
 
     stata_setup = namedtuple("stata_setup", ["path", "type"])
     return stata_setup(stata_path, stype)
+
+
+def patch_factor_analyzer() -> None:
+    """Make factor_analyzer work with scikit-learn >= 1.8.
+
+    factor_analyzer passes ``force_all_finite`` to ``check_array``, which
+    scikit-learn renamed to ``ensure_all_finite`` in 1.6 and removed in 1.8.
+
+    >>> from multidim.utils import patch_factor_analyzer
+    >>> patch_factor_analyzer()
+    """
+    from sklearn.utils import check_array
+    from factor_analyzer import factor_analyzer, confirmatory_factor_analyzer
+
+    if "ensure_all_finite" not in inspect.signature(check_array).parameters:
+        return
+
+    def _check_array(*args: Any, **kwargs: Any) -> Any:
+        if "force_all_finite" in kwargs:
+            kwargs["ensure_all_finite"] = kwargs.pop("force_all_finite")
+        return check_array(*args, **kwargs)
+
+    for module in (factor_analyzer, confirmatory_factor_analyzer):
+        setattr(module, "check_array", _check_array)
 
 
 def overwrite_stata_magic() -> None:

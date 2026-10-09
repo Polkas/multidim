@@ -23,6 +23,8 @@ The main focus is to learn how to build a reproducible and high quality scientif
 
 ## Installation
 
+For a new environment, Python 3.14 is recommended.
+
 ```bash
 $ git clone https://github.com/Polkas/multidim
 $ # (optional) open multidim directory in VScode
