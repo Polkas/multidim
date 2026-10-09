@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python: ["3.10"]
+        python: ["3.12"]
     # Set up operating system
     runs-on: ${{ matrix.os }}
 
